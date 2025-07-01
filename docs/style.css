@@ -1,3 +1,31 @@
-body { font-family: sans-serif; text-align: center; padding: 2em; } 
-#flag { width: 200px; height: auto; margin-bottom: 1em; } 
-button { font-size: 1.5em; margin: 0.5em; } .clickable { cursor: pointer; color: darkblue; font-weight: bold; margin: 10px; }
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2em;
+  margin: 0;
+}
+#flag {
+  width: 80%;
+  max-width: 500px; /* reasonable limit for larger devices */
+  height: auto;
+  margin-bottom: 1em;
+}
+/* Questions and answers: bigger font size */
+.clickable, #answer1, #answer2 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+#countdown1, #countdown2 {
+  font-size: 1.5em;
+}
+
+button {
+  font-size: 2em;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 12px;
+} .clickable { cursor: pointer; color: darkblue; font-weight: bold; margin: 10px; }
