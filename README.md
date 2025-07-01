@@ -1,2 +1,2 @@
 # AleRepositoryHub
-Here is where I tryout my projects. 
+I try using small javascript apps to help students practice Spanish pronunciation.
