@@ -1,0 +1,3 @@
+body { font-family: sans-serif; text-align: center; padding: 2em; } 
+#flag { width: 200px; height: auto; margin-bottom: 1em; } 
+button { font-size: 1.5em; margin: 0.5em; } .clickable { cursor: pointer; color: darkblue; font-weight: bold; margin: 10px; }
