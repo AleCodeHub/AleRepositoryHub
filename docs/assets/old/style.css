@@ -7,6 +7,25 @@ body, html {
   overflow: hidden;
 }
 
+.letra {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #7f8fa6;  /* azul grisáceo */
+  color: white;  /* color del texto dentro del círculo */
+  border: 4px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: bold;
+  font-size: 50px;  /* tamaño de la letra dentro del círculo */
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}  
+
 #pantalla-juego, #pantalla-instrucciones, #pantalla-final {
   position: absolute;
   width: 100%;
@@ -40,26 +59,22 @@ body, html {
   overflow: hidden;
 }
 
-
-.letra-circulo:hover {
-  background: #51d7f8;
-}
-
 .letra-circulo {
   position: absolute;
-  width: 100px;
+  width:100px;
   height: 100px;
-  background-color: #7f8fa6;  /* azul grisáceo */
-  color: white;
-  border: 4px solid rgb(109, 107, 107);
   border-radius: 50%;
+  background: #4caf50;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-weight: bold;
   font-size: 50px;
   user-select: none;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.2s;
+}
+
+.letra-circulo:hover {
+  background: #388e3c;
 }

@@ -1,183 +1,188 @@
-let countries = [];
-let usedIndices = [];
-let currentIndex = null;
-let showingCountry = false;
-let state = 'idle';
+// script.js
 
-const flagImg = document.getElementById('flag');
-const question1 = document.getElementById('question1');
-const answer1 = document.getElementById('answer1');
-const countdown1 = document.getElementById('countdown1');
-const speaker1 = document.getElementById('speaker1');
-const question2 = document.getElementById('question2');
-const answer2 = document.getElementById('answer2');
-const countdown2 = document.getElementById('countdown2');
-const speaker2 = document.getElementById('speaker2');
-const endMessage = document.getElementById('endMessage');
+const letrasData = [
+  { letra: "a", nombre: "A", audio: "_001_A.mp3" },
+  { letra: "b", nombre: "Be", audio: "_002_Be.mp3" },
+  { letra: "c", nombre: "Ce", audio: "_003_Ce.mp3" },
+  { letra: "ch", nombre: "Che", audio: "_004_Che.mp3" },
+  { letra: "d", nombre: "De", audio: "_005_De.mp3" },
+  { letra: "e", nombre: "E", audio: "_006_E.mp3" },
+  { letra: "f", nombre: "Efe", audio: "_007_Efe.mp3" },
+  { letra: "g", nombre: "Ge", audio: "_008_Ge.mp3" },
+  { letra: "h", nombre: "Hache", audio: "_009_Hache.mp3" },
+  { letra: "i", nombre: "I", audio: "_010_I.mp3" },
+  { letra: "j", nombre: "Jota", audio: "_011_Jota.mp3" },
+  { letra: "k", nombre: "Ka", audio: "_012_Ka.mp3" },
+  { letra: "l", nombre: "Ele", audio: "_013_Ele.mp3" },
+  { letra: "ll", nombre: "Elle", audio: "_014_Elle.mp3" },
+  { letra: "m", nombre: "Eme", audio: "_015_Eme.mp3" },
+  { letra: "n", nombre: "Ene", audio: "_016_Ene.mp3" },
+  { letra: "ñ", nombre: "Eñe", audio: "_017_Enne.mp3" },
+  { letra: "o", nombre: "O", audio: "_018_O.mp3" },
+  { letra: "p", nombre: "Pe", audio: "_019_Pe.mp3" },
+  { letra: "q", nombre: "Cu", audio: "_020_Cu.mp3" },
+  { letra: "r", nombre: "Erre", audio: "_021_Erre.mp3" },
+  { letra: "s", nombre: "Ese", audio: "_022_Ese.mp3" },
+  { letra: "t", nombre: "Te", audio: "_023_Te.mp3" },
+  { letra: "u", nombre: "U", audio: "_024_U.mp3" },
+  { letra: "v", nombre: "Uve", audio: "_025_V.mp3" },
+  { letra: "w", nombre: "Uve doble", audio: "_026_Vdoble.mp3" },
+  { letra: "x", nombre: "Equis", audio: "_027_Equis.mp3" },
+  { letra: "y", nombre: "I griega", audio: "_028_iGriega.mp3" },
+  { letra: "z", nombre: "Zeta", audio: "_029_Zeta.mp3" }
+];
 
-let flagInterval = null;
-let currentAudio = null;
+const campoJuego = document.getElementById("campo-juego");
+const aciertosEl = document.getElementById("aciertos");
+const erroresEl = document.getElementById("errores");
+let cantidadLetras = 4;
 
-fetch('countries_data.json')
-  .then(res => res.json())
-  .then(data => {
-    countries = data;
-    startFlagCycle();
-  });
+let letrasDisponibles = [...letrasData];
+let letrasEnPantalla = [];
+let letraCorrecta;
+let aciertos = 0;
+let errores = 0;
+let bloqueoClicks = false;
 
-function startFlagCycle() {
-  if (usedIndices.length >= 27) {
-    showEndMessage();
-    return;
-  }
-  state = 'cycling';
-  flagInterval = setInterval(() => {
-    currentIndex = getNextIndex();
-    if (currentIndex === null) {
-      stopFlagCycle();
-      showEndMessage();
-      return;
-    }
-    flagImg.src = countries[currentIndex].flag;
-  }, 90);
+function reproducirAudio(ruta) {
+  const audio = new Audio(ruta);
+  audio.play();
 }
 
-function getNextIndex() {
-  if (usedIndices.length >= 27) return null;
+function elegirGrupo(letras, cantidad) {
+  const grupo = [];
+  const disponibles = [...letras];
+  while (grupo.length < cantidad && disponibles.length > 0) {
+    const index = Math.floor(Math.random() * disponibles.length);
+    grupo.push(disponibles.splice(index, 1)[0]);
+  }
+  return grupo;
+}
 
-  if (usedIndices.length < 24) {
-    let index;
-    do {
-      index = Math.floor(Math.random() * countries.length);
-    } while (usedIndices.includes(index));
-    return index;
+function ajustarTexto(div, nombre) {
+  if (["Hache", "Equis"].includes(nombre)) {
+    div.style.fontSize = "35px";
+  } else if (["Uve doble", "I griega"].includes(nombre)) {
+    div.style.fontSize = "35px";
+    div.style.lineHeight = "1";
+    div.style.textAlign = "center";
   } else {
-    // Secuencial en los últimos 3 turnos
-    const index = usedIndices.length;
-    if (!usedIndices.includes(index)) {
-      return index;
-    } else {
-      return null;
-    }
+    div.style.fontSize = "50px";
   }
 }
-function stopFlagCycle() {
-  clearInterval(flagInterval);
-  flagInterval = null;
-}
 
-flagImg.addEventListener('click', () => {
-  if (state !== 'cycling') return;
-  stopFlagCycle();
-  if (!usedIndices.includes(currentIndex)) {
-    usedIndices.push(currentIndex);
-  }
-  showQuestion1();
-});
+function generarGrupoLetras() {
+  campoJuego.innerHTML = "";
+  bloqueoClicks = false;
+  letrasEnPantalla = [];
 
-function showQuestion1() {
-  state = 'waitingForCountryQuestion';
-  question1.innerText = '¿Qué país es?';
-  question1.style.cursor = 'pointer';
-  question1.onclick = () => {
-    if (state !== 'waitingForCountryQuestion') return;
-    showAnswer1();
-  };
-}
+  if (letrasDisponibles.length < cantidadLetras) return finalizarJuego();
+  const grupo = elegirGrupo(letrasDisponibles, cantidadLetras);
 
-function showAnswer1() {
-  state = 'showingCountryAnswer';
-  question1.style.cursor = 'default';
-  question1.onclick = null;
-  answer1.innerHTML = countries[currentIndex].nameHtml;
-  delayWithCountdown(countdown1, 3, () => {
-    //delayWithCountdown(countdown1, 5, () => {
-      speaker1.style.display = 'inline';
-      speaker1.onclick = () => {
-        playAudio(countries[currentIndex].countryAudio, () => {
-          showQuestion2();
-        });
-      };
-    //});
+  letraCorrecta = grupo[Math.floor(Math.random() * grupo.length)];
+  reproducirAudio(`assets/audio/letras/${letraCorrecta.audio}`);
+
+  grupo.forEach((letraObj) => {
+    const div = document.createElement("div");
+    div.className = "letra-circulo";
+    div.textContent = letraObj.letra;
+
+    const x = Math.random() * (campoJuego.clientWidth - 100);
+    const y = Math.random() * (campoJuego.clientHeight - 100);
+    const dx = (Math.random() - 0.5) * 8;
+    const dy = (Math.random() - 0.5) * 8;
+
+    div.style.left = `${x}px`;
+    div.style.top = `${y}px`;
+
+    campoJuego.appendChild(div);
+
+    letrasEnPantalla.push({
+      letra: letraObj.letra,
+      nombre: letraObj.nombre,
+      audio: letraObj.audio,
+      x,
+      y,
+      dx,
+      dy,
+      el: div
+    });
+
+    div.addEventListener("click", () => manejarClick(letraObj));
   });
 }
 
-function showQuestion2() {
-  state = 'waitingForNationalityQuestion';
-  question2.innerText = '¿Y la nacionalidad?';
-  question2.style.cursor = 'pointer';
-  question2.onclick = () => {
-    if (state !== 'waitingForNationalityQuestion') return;
-    showAnswer2();
-  };
-}
+function manejarClick(letraObj) {
+  if (bloqueoClicks) return;
 
-function showAnswer2() {
-  state = 'showingNationalityAnswer';
-  question2.style.cursor = 'default';
-  question2.onclick = null;
-  answer2.innerHTML = countries[currentIndex].nationalityHtml;
-  delayWithCountdown(countdown2, 3, () => {
-    //delayWithCountdown(countdown2, 5, () => {
-      speaker2.style.display = 'inline';
-      speaker2.onclick = () => {
-        playAudio(countries[currentIndex].nationalityAudio);
-      };
-      showContinueButton();
-    //});
-  });
-}
+  const letraIndex = letrasEnPantalla.findIndex(l => l.letra === letraObj.letra);
+  if (letraIndex === -1) return;
 
-function playAudio(src, onended = null) {
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio = null;
+  const letraData = letrasEnPantalla[letraIndex];
+  letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraObj.letra);
+  bloqueoClicks = true;
+
+  if (letraObj.letra === letraCorrecta.letra) {
+    reproducirAudio("assets/audio/interaccion/ding.mp3");
+    letraData.el.style.backgroundColor = "green";
+    letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
+    aciertos++;
+    aciertosEl.textContent = aciertos;
+  } else {
+    reproducirAudio("assets/audio/interaccion/buzz.mp3");
+    letraData.el.style.backgroundColor = "red";
+    letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
+    errores++;
+    erroresEl.textContent = errores;
   }
-  currentAudio = new Audio(src);
-  currentAudio.onended = onended;
-  currentAudio.play();
-}
 
-function delayWithCountdown(container, seconds, callback) {
-  let remaining = seconds;
-  container.innerText = `⏳ ${remaining}`;
-  const interval = setInterval(() => {
-    remaining--;
-    if (remaining <= 0) {
-      clearInterval(interval);
-      container.innerText = '';
-      callback();
-    } else {
-      container.innerText = `⏳ ${remaining}`;
-    }
+  setTimeout(() => {
+    generarGrupoLetras();
   }, 1000);
 }
 
-function showContinueButton() {
-  const button = document.createElement('button');
-  button.innerText = 'Continuar';
-  button.onclick = () => {
-    resetUI();
-    startFlagCycle();
-  };
-  endMessage.appendChild(button);
+function animarLetras() {
+  letrasEnPantalla.forEach((letra) => {
+    letra.x += letra.dx;
+    letra.y += letra.dy;
+
+    if (letra.x <= 0 || letra.x >= campoJuego.clientWidth - 100) {
+      letra.dx *= -1;
+    }
+    if (letra.y <= 0 || letra.y >= campoJuego.clientHeight - 100) {
+      letra.dy *= -1;
+    }
+
+    letra.el.style.left = `${letra.x}px`;
+    letra.el.style.top = `${letra.y}px`;
+  });
+
+  requestAnimationFrame(animarLetras);
 }
 
-function resetUI() {
-  flagImg.src = '';
-  question1.innerText = '';
-  answer1.innerText = '';
-  countdown1.innerText = '';
-  speaker1.style.display = 'none';
-  speaker1.onclick = null;
-  question2.innerText = '';
-  answer2.innerText = '';
-  countdown2.innerText = '';
-  speaker2.style.display = 'none';
-  speaker2.onclick = null;
-  endMessage.innerHTML = '';
+function finalizarJuego() {
+  document.getElementById("pantalla-juego").classList.add("oculto");
+  document.getElementById("pantalla-final").classList.remove("oculto");
+  document.getElementById("total-aciertos").textContent = aciertos;
+  document.getElementById("total-errores").textContent = errores;
 }
 
-function showEndMessage() {
-  endMessage.innerHTML = '<h2>🎉 ¡Fin! 🎉</h2>';
+function iniciarJuego(n) {
+  cantidadLetras = n;
+  document.getElementById("pantalla-instrucciones").classList.add("oculto");
+  document.getElementById("pantalla-juego").classList.remove("oculto");
+  generarGrupoLetras();
+  animarLetras();
 }
+
+document.getElementById("btn-reiniciar").addEventListener("click", () => {
+  document.getElementById("pantalla-final").classList.add("oculto");
+  document.getElementById("pantalla-instrucciones").classList.remove("oculto");
+  letrasDisponibles = [...letrasData];
+  aciertos = 0;
+  errores = 0;
+  aciertosEl.textContent = aciertos;
+  erroresEl.textContent = errores;
+});

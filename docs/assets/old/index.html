@@ -10,13 +10,9 @@
 <body>
   <!-- Pantalla de instrucciones -->
   <div id="pantalla-instrucciones" class="pantalla">
-    <h1>Escucha y elige la letra correcta</h1>
-    <p>¿Cuántas letras?</p>
-    <div>
-      <button onclick="iniciarJuego(2)">2</button>
-      <button onclick="iniciarJuego(3)">3</button>
-      <button onclick="iniciarJuego(4)">4</button>
-    </div>
+    <h1>Instrucciones</h1>
+    <p>Escucha y haz clic en la letra correcta.</p>
+    <button id="btn-comenzar">Comenzar</button>
   </div>
 
   <!-- Zona de juego -->
@@ -30,10 +26,10 @@
 
   <!-- Pantalla final -->
   <div id="pantalla-final" class="pantalla oculto">
-    <h2>¡Fin!</h2>
+    <h2>¡Juego terminado!</h2>
     <p>Total de aciertos: <span id="total-aciertos"></span></p>
     <p>Total de errores: <span id="total-errores"></span></p>
-    <button id="btn-reiniciar">¿Otra vez?</button>
+    <button id="btn-reiniciar">Jugar otra vez</button>
   </div>
 
   <script src="script.js"></script>
