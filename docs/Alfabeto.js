@@ -9,12 +9,12 @@ lib.ssMetadata = [];
 
 
 
-(lib._029btn_Z = function(mode,startPosition,loop) {
+(lib.029btn_Z = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_029_Zeta");
+		playSound("029_Zeta");
 	}
 
 	// actions tween:
@@ -63,12 +63,12 @@ lib.ssMetadata = [];
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._028btn_Y = function(mode,startPosition,loop) {
+(lib.028btn_Y = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_028_iGriega");
+		playSound("028_iGriega");
 	}
 
 	// actions tween:
@@ -129,12 +129,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._027btn_X = function(mode,startPosition,loop) {
+(lib.027btn_X = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_027_Equis");
+		playSound("027_Equis");
 	}
 
 	// actions tween:
@@ -187,12 +187,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._026btn_W = function(mode,startPosition,loop) {
+(lib.026btn_W = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_026_Vdoble");
+		playSound("026_Vdoble");
 	}
 
 	// actions tween:
@@ -257,12 +257,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-275.1,-175.1,549.1,349.29999999999995);
 
 
-(lib._025btn_V = function(mode,startPosition,loop) {
+(lib.025btn_V = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_025_V");
+		playSound("025_V");
 	}
 
 	// actions tween:
@@ -307,12 +307,12 @@ p.nominalBounds = new cjs.Rectangle(-275.1,-175.1,549.1,349.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-179,-175.1,379,349.29999999999995);
 
 
-(lib._024btn_U = function(mode,startPosition,loop) {
+(lib.024btn_U = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_024_U");
+		playSound("024_U");
 	}
 
 	// actions tween:
@@ -349,12 +349,12 @@ p.nominalBounds = new cjs.Rectangle(-179,-175.1,379,349.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-174.1,-175.1,348.29999999999995,349.29999999999995);
 
 
-(lib._023btn_Te = function(mode,startPosition,loop) {
+(lib.023btn_Te = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_023_Te");
+		playSound("023_Te");
 	}
 
 	// actions tween:
@@ -399,12 +399,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-175.1,348.29999999999995,349.2999999
 p.nominalBounds = new cjs.Rectangle(-168.7,-174.1,348.5,348.29999999999995);
 
 
-(lib._022btn_S = function(mode,startPosition,loop) {
+(lib.022btn_S = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_022_Ese");
+		playSound("022_Ese");
 	}
 
 	// actions tween:
@@ -449,12 +449,12 @@ p.nominalBounds = new cjs.Rectangle(-168.7,-174.1,348.5,348.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._021btn_Erre = function(mode,startPosition,loop) {
+(lib.021btn_Erre = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_021_Erre");
+		playSound("021_Erre");
 	}
 
 	// actions tween:
@@ -503,12 +503,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._020btn_Cu = function(mode,startPosition,loop) {
+(lib.020btn_Cu = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_020_Cu");
+		playSound("020_Cu");
 	}
 
 	// actions tween:
@@ -553,12 +553,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._019btn_Pe = function(mode,startPosition,loop) {
+(lib.019btn_Pe = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_019_Pe");
+		playSound("019_Pe");
 	}
 
 	// actions tween:
@@ -603,12 +603,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-176.3,348.29999999999995,350.5);
 
 
-(lib._018btn_O = function(mode,startPosition,loop) {
+(lib.018btn_O = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_018_O");
+		playSound("018_O");
 	}
 
 	// actions tween:
@@ -645,12 +645,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-176.3,348.29999999999995,350.5);
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._017btn_Enne = function(mode,startPosition,loop) {
+(lib.017btn_Enne = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_017_Enne");
+		playSound("017_Enne");
 	}
 
 	// actions tween:
@@ -695,12 +695,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-175,-174.1,352,348.29999999999995);
 
 
-(lib._016btn_Ene = function(mode,startPosition,loop) {
+(lib.016btn_Ene = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_016_Ene");
+		playSound("016_Ene");
 	}
 
 	// actions tween:
@@ -745,12 +745,12 @@ p.nominalBounds = new cjs.Rectangle(-175,-174.1,352,348.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-175,-174.1,352,348.29999999999995);
 
 
-(lib._015btn_Eme = function(mode,startPosition,loop) {
+(lib.015btn_Eme = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_015_Eme");
+		playSound("015_Eme");
 	}
 
 	// actions tween:
@@ -795,12 +795,12 @@ p.nominalBounds = new cjs.Rectangle(-175,-174.1,352,348.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-174.9,-174.1,349.1,348.29999999999995);
 
 
-(lib._014btn_Elle = function(mode,startPosition,loop) {
+(lib.014btn_Elle = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_014_Elle");
+		playSound("014_Elle");
 	}
 
 	// actions tween:
@@ -857,12 +857,12 @@ p.nominalBounds = new cjs.Rectangle(-174.9,-174.1,349.1,348.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._013btn_Ele = function(mode,startPosition,loop) {
+(lib.013btn_Ele = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_013_Ele");
+		playSound("013_Ele");
 	}
 
 	// actions tween:
@@ -907,12 +907,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._012btn_Ka = function(mode,startPosition,loop) {
+(lib.012btn_Ka = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_012_Ka");
+		playSound("012_Ka");
 	}
 
 	// actions tween:
@@ -953,12 +953,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._011btn_Jota = function(mode,startPosition,loop) {
+(lib.011btn_Jota = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_011_Jota");
+		playSound("011_Jota");
 	}
 
 	// actions tween:
@@ -1007,12 +1007,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._010btn_I = function(mode,startPosition,loop) {
+(lib.010btn_I = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_010_I");
+		playSound("010_I");
 	}
 
 	// actions tween:
@@ -1049,12 +1049,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._009btn_Hache = function(mode,startPosition,loop) {
+(lib.009btn_Hache = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_009_Hache");
+		playSound("009_Hache");
 	}
 
 	// actions tween:
@@ -1107,12 +1107,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._008btn_Ge = function(mode,startPosition,loop) {
+(lib.008btn_Ge = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_008_Ge");
+		playSound("008_Ge");
 	}
 
 	// actions tween:
@@ -1153,12 +1153,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._007btn_Efe = function(mode,startPosition,loop) {
+(lib.007btn_Efe = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_007_Efe");
+		playSound("007_Efe");
 	}
 
 	// actions tween:
@@ -1223,12 +1223,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,570.8);
 
 
-(lib._006btn_E = function(mode,startPosition,loop) {
+(lib.006btn_E = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_006_E");
+		playSound("006_E");
 	}
 
 	// actions tween:
@@ -1265,12 +1265,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,570.8);
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._005btn_De = function(mode,startPosition,loop) {
+(lib.005btn_De = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_005_De");
+		playSound("005_De");
 	}
 
 	// actions tween:
@@ -1311,12 +1311,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._004btn_Che = function(mode,startPosition,loop) {
+(lib.004btn_Che = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_004_Che");
+		playSound("004_Che");
 	}
 
 	// actions tween:
@@ -1377,12 +1377,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,404.1,348.29999999999995);
 
 
-(lib._003btn_Ce = function(mode,startPosition,loop) {
+(lib.003btn_Ce = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_003_Ce");
+		playSound("003_Ce");
 	}
 
 	// actions tween:
@@ -1423,12 +1423,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,404.1,348.29999999999995);
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._002btn_Be = function(mode,startPosition,loop) {
+(lib.002btn_Be = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_002_Be");
+		playSound("002_Be");
 	}
 
 	// actions tween:
@@ -1469,12 +1469,12 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.29999999999995);
 
 
-(lib._001btn_A = function(mode,startPosition,loop) {
+(lib.001btn_A = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("_001_A");
+		playSound("001_A");
 	}
 
 	// actions tween:
@@ -1516,150 +1516,150 @@ p.nominalBounds = new cjs.Rectangle(-174.1,-174.1,348.29999999999995,348.2999999
 	this.initialize(mode,startPosition,loop,{});
 
 	// Button_A
-	this.instance = new lib._029btn_Z();
+	this.instance = new lib.029btn_Z();
 	this.instance.parent = this;
 	this.instance.setTransform(347.15,967.65,0.3406,0.3406,0,0,0,0,0.1);
-	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib._029btn_Z(), 3);
+	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib.029btn_Z(), 3);
 
-	this.instance_1 = new lib._027btn_X();
+	this.instance_1 = new lib.027btn_X();
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(408.4,843.95,0.3406,0.3406,0,0,0,0.1,0);
-	new cjs.ButtonHelper(this.instance_1, 0, 1, 2, false, new lib._027btn_X(), 3);
+	new cjs.ButtonHelper(this.instance_1, 0, 1, 2, false, new lib.027btn_X(), 3);
 
-	this.instance_2 = new lib._028btn_Y();
+	this.instance_2 = new lib.028btn_Y();
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(223.25,967.4,0.3406,0.3406,0,0,0,0,0.1);
-	new cjs.ButtonHelper(this.instance_2, 0, 1, 2, false, new lib._028btn_Y(), 3);
+	new cjs.ButtonHelper(this.instance_2, 0, 1, 2, false, new lib.028btn_Y(), 3);
 
-	this.instance_3 = new lib._026btn_W();
+	this.instance_3 = new lib.026btn_W();
 	this.instance_3.parent = this;
 	this.instance_3.setTransform(285.05,844,0.3406,0.3406,0,0,0,0.3,0.1);
-	new cjs.ButtonHelper(this.instance_3, 0, 1, 2, false, new lib._026btn_W(), 3);
+	new cjs.ButtonHelper(this.instance_3, 0, 1, 2, false, new lib.026btn_W(), 3);
 
-	this.instance_4 = new lib._025btn_V();
+	this.instance_4 = new lib.025btn_V();
 	this.instance_4.parent = this;
 	this.instance_4.setTransform(161.6,844,0.3406,0.3406,0,0,0,0,0.1);
-	new cjs.ButtonHelper(this.instance_4, 0, 1, 2, false, new lib._025btn_V(), 3);
+	new cjs.ButtonHelper(this.instance_4, 0, 1, 2, false, new lib.025btn_V(), 3);
 
-	this.instance_5 = new lib._024btn_U();
+	this.instance_5 = new lib.024btn_U();
 	this.instance_5.parent = this;
 	this.instance_5.setTransform(472.65,720.05,0.3406,0.3406,0,0,0,0.1,0);
-	new cjs.ButtonHelper(this.instance_5, 0, 1, 2, false, new lib._024btn_U(), 3);
+	new cjs.ButtonHelper(this.instance_5, 0, 1, 2, false, new lib.024btn_U(), 3);
 
-	this.instance_6 = new lib._023btn_Te();
+	this.instance_6 = new lib.023btn_Te();
 	this.instance_6.parent = this;
 	this.instance_6.setTransform(345.75,720.2,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_6, 0, 1, 2, false, new lib._023btn_Te(), 3);
+	new cjs.ButtonHelper(this.instance_6, 0, 1, 2, false, new lib.023btn_Te(), 3);
 
-	this.instance_7 = new lib._022btn_S();
+	this.instance_7 = new lib.022btn_S();
 	this.instance_7.parent = this;
 	this.instance_7.setTransform(222.85,720.15,0.3406,0.3406,0,0,0,0.3,0);
-	new cjs.ButtonHelper(this.instance_7, 0, 1, 2, false, new lib._022btn_S(), 3);
+	new cjs.ButtonHelper(this.instance_7, 0, 1, 2, false, new lib.022btn_S(), 3);
 
-	this.instance_8 = new lib._021btn_Erre();
+	this.instance_8 = new lib.021btn_Erre();
 	this.instance_8.parent = this;
 	this.instance_8.setTransform(95.95,720.2,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_8, 0, 1, 2, false, new lib._021btn_Erre(), 3);
+	new cjs.ButtonHelper(this.instance_8, 0, 1, 2, false, new lib.021btn_Erre(), 3);
 
-	this.instance_9 = new lib._020btn_Cu();
+	this.instance_9 = new lib.020btn_Cu();
 	this.instance_9.parent = this;
 	this.instance_9.setTransform(472.65,596.45,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_9, 0, 1, 2, false, new lib._020btn_Cu(), 3);
+	new cjs.ButtonHelper(this.instance_9, 0, 1, 2, false, new lib.020btn_Cu(), 3);
 
-	this.instance_10 = new lib._019btn_Pe();
+	this.instance_10 = new lib.019btn_Pe();
 	this.instance_10.parent = this;
 	this.instance_10.setTransform(347.7,596.45,0.3406,0.3406,0,0,0,0.3,0.1);
-	new cjs.ButtonHelper(this.instance_10, 0, 1, 2, false, new lib._019btn_Pe(), 3);
+	new cjs.ButtonHelper(this.instance_10, 0, 1, 2, false, new lib.019btn_Pe(), 3);
 
-	this.instance_11 = new lib._018btn_O();
+	this.instance_11 = new lib.018btn_O();
 	this.instance_11.parent = this;
 	this.instance_11.setTransform(222.85,596.45,0.3406,0.3406,0,0,0,0.3,0.1);
-	new cjs.ButtonHelper(this.instance_11, 0, 1, 2, false, new lib._018btn_O(), 3);
+	new cjs.ButtonHelper(this.instance_11, 0, 1, 2, false, new lib.018btn_O(), 3);
 
-	this.instance_12 = new lib._017btn_Enne();
+	this.instance_12 = new lib.017btn_Enne();
 	this.instance_12.parent = this;
 	this.instance_12.setTransform(95.95,596.45,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_12, 0, 1, 2, false, new lib._017btn_Enne(), 3);
+	new cjs.ButtonHelper(this.instance_12, 0, 1, 2, false, new lib.017btn_Enne(), 3);
 
-	this.instance_13 = new lib._016btn_Ene();
+	this.instance_13 = new lib.016btn_Ene();
 	this.instance_13.parent = this;
 	this.instance_13.setTransform(472.65,473.2,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_13, 0, 1, 2, false, new lib._016btn_Ene(), 3);
+	new cjs.ButtonHelper(this.instance_13, 0, 1, 2, false, new lib.016btn_Ene(), 3);
 
-	this.instance_14 = new lib._015btn_Eme();
+	this.instance_14 = new lib.015btn_Eme();
 	this.instance_14.parent = this;
 	this.instance_14.setTransform(347.65,473.2,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_14, 0, 1, 2, false, new lib._015btn_Eme(), 3);
+	new cjs.ButtonHelper(this.instance_14, 0, 1, 2, false, new lib.015btn_Eme(), 3);
 
-	this.instance_15 = new lib._008btn_Ge();
+	this.instance_15 = new lib.008btn_Ge();
 	this.instance_15.parent = this;
 	this.instance_15.setTransform(472.65,225.75,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_15, 0, 1, 2, false, new lib._008btn_Ge(), 3);
+	new cjs.ButtonHelper(this.instance_15, 0, 1, 2, false, new lib.008btn_Ge(), 3);
 
-	this.instance_16 = new lib._007btn_Efe();
+	this.instance_16 = new lib.007btn_Efe();
 	this.instance_16.parent = this;
 	this.instance_16.setTransform(347.65,225.75,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_16, 0, 1, 2, false, new lib._007btn_Efe(), 3);
+	new cjs.ButtonHelper(this.instance_16, 0, 1, 2, false, new lib.007btn_Efe(), 3);
 
-	this.instance_17 = new lib._006btn_E();
+	this.instance_17 = new lib.006btn_E();
 	this.instance_17.parent = this;
 	this.instance_17.setTransform(222.85,225.75,0.3406,0.3406,0,0,0,0.3,0.3);
-	new cjs.ButtonHelper(this.instance_17, 0, 1, 2, false, new lib._006btn_E(), 3);
+	new cjs.ButtonHelper(this.instance_17, 0, 1, 2, false, new lib.006btn_E(), 3);
 
-	this.instance_18 = new lib._005btn_De();
+	this.instance_18 = new lib.005btn_De();
 	this.instance_18.parent = this;
 	this.instance_18.setTransform(95.95,225.75,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_18, 0, 1, 2, false, new lib._005btn_De(), 3);
+	new cjs.ButtonHelper(this.instance_18, 0, 1, 2, false, new lib.005btn_De(), 3);
 
-	this.instance_19 = new lib._014btn_Elle();
+	this.instance_19 = new lib.014btn_Elle();
 	this.instance_19.parent = this;
 	this.instance_19.setTransform(222.85,473.2,0.3406,0.3406,0,0,0,0.3,0.3);
-	new cjs.ButtonHelper(this.instance_19, 0, 1, 2, false, new lib._014btn_Elle(), 3);
+	new cjs.ButtonHelper(this.instance_19, 0, 1, 2, false, new lib.014btn_Elle(), 3);
 
-	this.instance_20 = new lib._013btn_Ele();
+	this.instance_20 = new lib.013btn_Ele();
 	this.instance_20.parent = this;
 	this.instance_20.setTransform(95.9,473.1,0.3406,0.3406);
-	new cjs.ButtonHelper(this.instance_20, 0, 1, 2, false, new lib._013btn_Ele(), 3);
+	new cjs.ButtonHelper(this.instance_20, 0, 1, 2, false, new lib.013btn_Ele(), 3);
 
-	this.instance_21 = new lib._010btn_I();
+	this.instance_21 = new lib.010btn_I();
 	this.instance_21.parent = this;
 	this.instance_21.setTransform(222.85,349.5,0.3406,0.3406,0,0,0,0.3,0.1);
-	new cjs.ButtonHelper(this.instance_21, 0, 1, 2, false, new lib._010btn_I(), 3);
+	new cjs.ButtonHelper(this.instance_21, 0, 1, 2, false, new lib.010btn_I(), 3);
 
-	this.instance_22 = new lib._012btn_Ka();
+	this.instance_22 = new lib.012btn_Ka();
 	this.instance_22.parent = this;
 	this.instance_22.setTransform(472.65,349.5,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_22, 0, 1, 2, false, new lib._012btn_Ka(), 3);
+	new cjs.ButtonHelper(this.instance_22, 0, 1, 2, false, new lib.012btn_Ka(), 3);
 
-	this.instance_23 = new lib._011btn_Jota();
+	this.instance_23 = new lib.011btn_Jota();
 	this.instance_23.parent = this;
 	this.instance_23.setTransform(347.65,349.5,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_23, 0, 1, 2, false, new lib._011btn_Jota(), 3);
+	new cjs.ButtonHelper(this.instance_23, 0, 1, 2, false, new lib.011btn_Jota(), 3);
 
-	this.instance_24 = new lib._009btn_Hache();
+	this.instance_24 = new lib.009btn_Hache();
 	this.instance_24.parent = this;
 	this.instance_24.setTransform(95.95,349.5,0.3406,0.3406,0,0,0,0.1,0.1);
-	new cjs.ButtonHelper(this.instance_24, 0, 1, 2, false, new lib._009btn_Hache(), 3);
+	new cjs.ButtonHelper(this.instance_24, 0, 1, 2, false, new lib.009btn_Hache(), 3);
 
-	this.instance_25 = new lib._004btn_Che();
+	this.instance_25 = new lib.004btn_Che();
 	this.instance_25.parent = this;
 	this.instance_25.setTransform(472.6,101.4,0.3406,0.3406);
-	new cjs.ButtonHelper(this.instance_25, 0, 1, 2, false, new lib._004btn_Che(), 3);
+	new cjs.ButtonHelper(this.instance_25, 0, 1, 2, false, new lib.004btn_Che(), 3);
 
-	this.instance_26 = new lib._003btn_Ce();
+	this.instance_26 = new lib.003btn_Ce();
 	this.instance_26.parent = this;
 	this.instance_26.setTransform(347.7,102.15,0.3406,0.3406,0,0,0,0.3,0.3);
-	new cjs.ButtonHelper(this.instance_26, 0, 1, 2, false, new lib._003btn_Ce(), 3);
+	new cjs.ButtonHelper(this.instance_26, 0, 1, 2, false, new lib.003btn_Ce(), 3);
 
-	this.instance_27 = new lib._002btn_Be();
+	this.instance_27 = new lib.002btn_Be();
 	this.instance_27.parent = this;
 	this.instance_27.setTransform(222.85,102.15,0.3406,0.3406,0,0,0,0.3,0.3);
-	new cjs.ButtonHelper(this.instance_27, 0, 1, 2, false, new lib._002btn_Be(), 3);
+	new cjs.ButtonHelper(this.instance_27, 0, 1, 2, false, new lib.002btn_Be(), 3);
 
-	this.instance_28 = new lib._001btn_A();
+	this.instance_28 = new lib.001btn_A();
 	this.instance_28.parent = this;
 	this.instance_28.setTransform(95.95,102.15,0.3406,0.3406,0,0,0,0.1,0.3);
-	new cjs.ButtonHelper(this.instance_28, 0, 1, 2, false, new lib._001btn_A(), 3);
+	new cjs.ButtonHelper(this.instance_28, 0, 1, 2, false, new lib.001btn_A(), 3);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_28},{t:this.instance_27},{t:this.instance_26},{t:this.instance_25},{t:this.instance_24},{t:this.instance_23},{t:this.instance_22},{t:this.instance_21},{t:this.instance_20},{t:this.instance_19},{t:this.instance_18},{t:this.instance_17},{t:this.instance_16},{t:this.instance_15},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_11},{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(5));
 
@@ -1674,35 +1674,35 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"../assets/audio/letras/_001_A.mp3?1656659430802", id:"_001_A"},
-		{src:"../assets/audio/letras/_002_Be.mp3?1656659430802", id:"_002_Be"},
-		{src:"../assets/audio/letras/_003_Ce.mp3?1656659430802", id:"_003_Ce"},
-		{src:"../assets/audio/letras/_004_Che.mp3?1656659430802", id:"_004_Che"},
-		{src:"../assets/audio/letras/_005_De.mp3?1656659430802", id:"_005_De"},
-		{src:"../assets/audio/letras/_006_E.mp3?1656659430802", id:"_006_E"},
-		{src:"../assets/audio/letras/_007_Efe.mp3?1656659430802", id:"_007_Efe"},
-		{src:"../assets/audio/letras/_008_Ge.mp3?1656659430802", id:"_008_Ge"},
-		{src:"../assets/audio/letras/_009_Hache.mp3?1656659430802", id:"_009_Hache"},
-		{src:"../assets/audio/letras/_010_I.mp3?1656659430802", id:"_010_I"},
-		{src:"../assets/audio/letras/_011_Jota.mp3?1656659430802", id:"_011_Jota"},
-		{src:"../assets/audio/letras/_012_Ka.mp3?1656659430802", id:"_012_Ka"},
-		{src:"../assets/audio/letras/_013_Ele.mp3?1656659430802", id:"_013_Ele"},
-		{src:"../assets/audio/letras/_014_Elle.mp3?1656659430802", id:"_014_Elle"},
-		{src:"../assets/audio/letras/_015_Eme.mp3?1656659430802", id:"_015_Eme"},
-		{src:"../assets/audio/letras/_016_Ene.mp3?1656659430802", id:"_016_Ene"},
-		{src:"../assets/audio/letras/_017_Enne.mp3?1656659430802", id:"_017_Enne"},
-		{src:"../assets/audio/letras/_018_O.mp3?1656659430802", id:"_018_O"},
-		{src:"../assets/audio/letras/_019_Pe.mp3?1656659430802", id:"_019_Pe"},
-		{src:"../assets/audio/letras/_020_Cu.mp3?1656659430802", id:"_020_Cu"},
-		{src:"../assets/audio/letras/_021_Erre.mp3?1656659430802", id:"_021_Erre"},
-		{src:"../assets/audio/letras/_022_Ese.mp3?1656659430802", id:"_022_Ese"},
-		{src:"../assets/audio/letras/_023_Te.mp3?1656659430802", id:"_023_Te"},
-		{src:"../assets/audio/letras/_024_U.mp3?1656659430802", id:"_024_U"},
-		{src:"../assets/audio/letras/_025_V.mp3?1656659430802", id:"_025_V"},
-		{src:"../assets/audio/letras/_026_Vdoble.mp3?1656659430802", id:"_026_Vdoble"},
-		{src:"../assets/audio/letras/_027_Equis.mp3?1656659430802", id:"_027_Equis"},
-		{src:"../assets/audio/letras/_028_iGriega.mp3?1656659430802", id:"_028_iGriega"},
-		{src:"../assets/audio/letras/_029_Zeta.mp3?1656659430802", id:"_029_Zeta"}
+		{src:"../assets/audio/letras/001_A.mp3?1656659430802", id:"001_A"},
+		{src:"../assets/audio/letras/002_Be.mp3?1656659430802", id:"002_Be"},
+		{src:"../assets/audio/letras/003_Ce.mp3?1656659430802", id:"003_Ce"},
+		{src:"../assets/audio/letras/004_Che.mp3?1656659430802", id:"004_Che"},
+		{src:"../assets/audio/letras/005_De.mp3?1656659430802", id:"005_De"},
+		{src:"../assets/audio/letras/006_E.mp3?1656659430802", id:"006_E"},
+		{src:"../assets/audio/letras/007_Efe.mp3?1656659430802", id:"007_Efe"},
+		{src:"../assets/audio/letras/008_Ge.mp3?1656659430802", id:"008_Ge"},
+		{src:"../assets/audio/letras/009_Hache.mp3?1656659430802", id:"009_Hache"},
+		{src:"../assets/audio/letras/010_I.mp3?1656659430802", id:"010_I"},
+		{src:"../assets/audio/letras/011_Jota.mp3?1656659430802", id:"011_Jota"},
+		{src:"../assets/audio/letras/012_Ka.mp3?1656659430802", id:"012_Ka"},
+		{src:"../assets/audio/letras/013_Ele.mp3?1656659430802", id:"013_Ele"},
+		{src:"../assets/audio/letras/014_Elle.mp3?1656659430802", id:"014_Elle"},
+		{src:"../assets/audio/letras/015_Eme.mp3?1656659430802", id:"015_Eme"},
+		{src:"../assets/audio/letras/016_Ene.mp3?1656659430802", id:"016_Ene"},
+		{src:"../assets/audio/letras/017_Enne.mp3?1656659430802", id:"017_Enne"},
+		{src:"../assets/audio/letras/018_O.mp3?1656659430802", id:"018_O"},
+		{src:"../assets/audio/letras/019_Pe.mp3?1656659430802", id:"019_Pe"},
+		{src:"../assets/audio/letras/020_Cu.mp3?1656659430802", id:"020_Cu"},
+		{src:"../assets/audio/letras/021_Erre.mp3?1656659430802", id:"021_Erre"},
+		{src:"../assets/audio/letras/022_Ese.mp3?1656659430802", id:"022_Ese"},
+		{src:"../assets/audio/letras/023_Te.mp3?1656659430802", id:"023_Te"},
+		{src:"../assets/audio/letras/024_U.mp3?1656659430802", id:"024_U"},
+		{src:"../assets/audio/letras/025_V.mp3?1656659430802", id:"025_V"},
+		{src:"../assets/audio/letras/026_Vdoble.mp3?1656659430802", id:"026_Vdoble"},
+		{src:"../assets/audio/letras/027_Equis.mp3?1656659430802", id:"027_Equis"},
+		{src:"../assets/audio/letras/028_iGriega.mp3?1656659430802", id:"028_iGriega"},
+		{src:"../assets/audio/letras/029_Zeta.mp3?1656659430802", id:"029_Zeta"}
 	],
 	preloads: []
 };
