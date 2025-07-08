@@ -67,3 +67,26 @@ body, html {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
+#pantalla-instrucciones h1 {
+  font-size: 28px; /* o más grande según necesites */
+  text-align: center;
+  margin: 20px;
+}
+
+#pantalla-instrucciones p {
+  font-size: 22px;
+  text-align: center;
+}
+
+#pantalla-instrucciones button {
+  font-size: 22px;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 10px;
+}
+#pantalla-instrucciones button {
+  width: 80px;           /* tamaño fijo opcional */
+  max-width: 30%;        /* para que se acomoden bien */
+}
+
+
