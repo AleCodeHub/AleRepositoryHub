@@ -1,35 +1,35 @@
 // script.js
 
 const letrasData = [
-  { letra: "a", nombre: "A", audio: "001_A.mp3" },
-  { letra: "b", nombre: "Be", audio: "002_Be.mp3" },
-  { letra: "c", nombre: "Ce", audio: "003_Ce.mp3" },
-  { letra: "ch", nombre: "Che", audio: "004_Che.mp3" },
-  { letra: "d", nombre: "De", audio: "005_De.mp3" },
-  { letra: "e", nombre: "E", audio: "006_E.mp3" },
-  { letra: "f", nombre: "Efe", audio: "007_Efe.mp3" },
-  { letra: "g", nombre: "Ge", audio: "008_Ge.mp3" },
-  { letra: "h", nombre: "Hache", audio: "009_Hache.mp3" },
-  { letra: "i", nombre: "I", audio: "010_I.mp3" },
-  { letra: "j", nombre: "Jota", audio: "011_Jota.mp3" },
-  { letra: "k", nombre: "Ka", audio: "012_Ka.mp3" },
-  { letra: "l", nombre: "Ele", audio: "013_Ele.mp3" },
-  { letra: "ll", nombre: "Elle", audio: "014_Elle.mp3" },
-  { letra: "m", nombre: "Eme", audio: "015_Eme.mp3" },
-  { letra: "n", nombre: "Ene", audio: "016_Ene.mp3" },
-  { letra: "ñ", nombre: "Eñe", audio: "017_Enne.mp3" },
-  { letra: "o", nombre: "O", audio: "018_O.mp3" },
-  { letra: "p", nombre: "Pe", audio: "019_Pe.mp3" },
-  { letra: "q", nombre: "Cu", audio: "020_Cu.mp3" },
-  { letra: "r", nombre: "Erre", audio: "021_Erre.mp3" },
-  { letra: "s", nombre: "Ese", audio: "022_Ese.mp3" },
-  { letra: "t", nombre: "Te", audio: "023_Te.mp3" },
-  { letra: "u", nombre: "U", audio: "024_U.mp3" },
-  { letra: "v", nombre: "Uve", audio: "025_V.mp3" },
-  { letra: "w", nombre: "Uve doble", audio: "026_Vdoble.mp3" },
-  { letra: "x", nombre: "Equis", audio: "027_Equis.mp3" },
-  { letra: "y", nombre: "I griega", audio: "028_iGriega.mp3" },
-  { letra: "z", nombre: "Zeta", audio: "029_Zeta.mp3" }
+  { letra: "a", nombre: "A", audio: "A.mp3" },
+  { letra: "b", nombre: "Be", audio: "Be.mp3" },
+  { letra: "c", nombre: "Ce", audio: "Ce.mp3" },
+  { letra: "ch", nombre: "Che", audio: "Che.mp3" },
+  { letra: "d", nombre: "De", audio: "De.mp3" },
+  { letra: "e", nombre: "E", audio: "E.mp3" },
+  { letra: "f", nombre: "Efe", audio: "Efe.mp3" },
+  { letra: "g", nombre: "Ge", audio: "Ge.mp3" },
+  { letra: "h", nombre: "Hache", audio: "Hache.mp3" },
+  { letra: "i", nombre: "I", audio: "I.mp3" },
+  { letra: "j", nombre: "Jota", audio: "Jota.mp3" },
+  { letra: "k", nombre: "Ka", audio: "Ka.mp3" },
+  { letra: "l", nombre: "Ele", audio: "Ele.mp3" },
+  { letra: "ll", nombre: "Elle", audio: "Elle.mp3" },
+  { letra: "m", nombre: "Eme", audio: "Eme.mp3" },
+  { letra: "n", nombre: "Ene", audio: "Ene.mp3" },
+  { letra: "ñ", nombre: "Eñe", audio: "Enne.mp3" },
+  { letra: "o", nombre: "O", audio: "O.mp3" },
+  { letra: "p", nombre: "Pe", audio: "Pe.mp3" },
+  { letra: "q", nombre: "Cu", audio: "Cu.mp3" },
+  { letra: "r", nombre: "Erre", audio: "Erre.mp3" },
+  { letra: "s", nombre: "Ese", audio: "Ese.mp3" },
+  { letra: "t", nombre: "Te", audio: "Te.mp3" },
+  { letra: "u", nombre: "U", audio: "U.mp3" },
+  { letra: "v", nombre: "Uve", audio: "V.mp3" },
+  { letra: "w", nombre: "Uve doble", audio: "Vdoble.mp3" },
+  { letra: "x", nombre: "Equis", audio: "Equis.mp3" },
+  { letra: "y", nombre: "I griega", audio: "iGriega.mp3" },
+  { letra: "z", nombre: "Zeta", audio: "Zeta.mp3" }
 ];
 
 const campoJuego = document.getElementById("campo-juego");
@@ -49,7 +49,7 @@ function reproducirAudio(ruta) {
   audio.play();
 }
 
-function elegirGrupo(letras, cantidad) {
+function elegirGrupo(letras, cantidad = 4) {
   const grupo = [];
   const disponibles = [...letras];
   while (grupo.length < cantidad && disponibles.length > 0) {
@@ -76,10 +76,7 @@ function generarGrupoLetras() {
   bloqueoClicks = false;
   letrasEnPantalla = [];
 
-  if (letrasDisponibles.length < cantidadLetras) {
-    finalizarJuego();
-    return;
-  }
+  if (letrasDisponibles.length < cantidadLetras) return finalizarJuego();
 
   const grupo = elegirGrupo(letrasDisponibles, cantidadLetras);
   letraCorrecta = grupo[Math.floor(Math.random() * grupo.length)];
@@ -90,10 +87,18 @@ function generarGrupoLetras() {
     div.className = "letra-circulo";
     div.textContent = letraObj.letra;
 
-    const x = Math.random() * (campoJuego.clientWidth - 100);
-    const y = Math.random() * (campoJuego.clientHeight - 100);
-    const dx = (Math.random() - 0.5) * 6;
-    const dy = (Math.random() - 0.5) * 6;
+    let x, y;
+    let intentos = 0;
+    do {
+      x = Math.random() * (campoJuego.clientWidth - 100);
+      y = Math.random() * (campoJuego.clientHeight - 100);
+      intentos++;
+    } while (
+      letrasEnPantalla.some((l) => Math.hypot(l.x - x, l.y - y) < 100) && intentos < 50
+    );
+
+    const dx = (Math.random() - 0.5) * 6 || 2;
+    const dy = (Math.random() - 0.5) * 6 || 2;
 
     div.style.left = `${x}px`;
     div.style.top = `${y}px`;
@@ -117,8 +122,12 @@ function generarGrupoLetras() {
 
 function manejarClick(letraObj) {
   if (bloqueoClicks) return;
-  const letraData = letrasEnPantalla.find(l => l.letra === letraObj.letra);
-  if (!letraData) return;
+
+  const letraIndex = letrasEnPantalla.findIndex((l) => l.letra === letraObj.letra);
+  if (letraIndex === -1) return;
+  const letraData = letrasEnPantalla[letraIndex];
+
+  bloqueoClicks = true;
 
   if (letraObj.letra === letraCorrecta.letra) {
     reproducirAudio("assets/audio/interaccion/ding.mp3");
@@ -127,8 +136,6 @@ function manejarClick(letraObj) {
     ajustarTexto(letraData.el, letraObj.nombre);
     aciertos++;
     aciertosEl.textContent = aciertos;
-    bloqueoClicks = true;
-    letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraCorrecta.letra);
   } else {
     reproducirAudio("assets/audio/interaccion/buzz.mp3");
     letraData.el.style.backgroundColor = "red";
@@ -136,45 +143,44 @@ function manejarClick(letraObj) {
     ajustarTexto(letraData.el, letraObj.nombre);
     errores++;
     erroresEl.textContent = errores;
-    letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraObj.letra);
   }
 
-  setTimeout(() => {
-    generarGrupoLetras();
-  }, 1000);
+  letrasDisponibles = letrasDisponibles.filter((l) => l.letra !== letraObj.letra);
+
+  setTimeout(() => generarGrupoLetras(), 1000);
+}
+
+function detectarColisiones() {
+  for (let i = 0; i < letrasEnPantalla.length; i++) {
+    for (let j = i + 1; j < letrasEnPantalla.length; j++) {
+      const a = letrasEnPantalla[i];
+      const b = letrasEnPantalla[j];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      if (dist < 100) {
+        const tempDx = a.dx;
+        const tempDy = a.dy;
+        a.dx = b.dx;
+        a.dy = b.dy;
+        b.dx = tempDx;
+        b.dy = tempDy;
+      }
+    }
+  }
 }
 
 function animarLetras() {
-  letrasEnPantalla.forEach((letra, i) => {
+  letrasEnPantalla.forEach((letra) => {
     letra.x += letra.dx;
     letra.y += letra.dy;
 
-    if (letra.x <= 0 || letra.x >= campoJuego.clientWidth - 100) {
-      letra.dx *= -1;
-    }
-    if (letra.y <= 0 || letra.y >= campoJuego.clientHeight - 100) {
-      letra.dy *= -1;
-    }
-
-    // Verificar colisiones con otros círculos
-    for (let j = i + 1; j < letrasEnPantalla.length; j++) {
-      const otro = letrasEnPantalla[j];
-      const dx = letra.x - otro.x;
-      const dy = letra.y - otro.y;
-      const distancia = Math.sqrt(dx * dx + dy * dy);
-      if (distancia < 100) {
-        // Rebote simple
-        letra.dx *= -1;
-        letra.dy *= -1;
-        otro.dx *= -1;
-        otro.dy *= -1;
-      }
-    }
+    if (letra.x <= 0 || letra.x >= campoJuego.clientWidth - 100) letra.dx *= -1;
+    if (letra.y <= 0 || letra.y >= campoJuego.clientHeight - 100) letra.dy *= -1;
 
     letra.el.style.left = `${letra.x}px`;
     letra.el.style.top = `${letra.y}px`;
   });
 
+  detectarColisiones();
   requestAnimationFrame(animarLetras);
 }
 
@@ -185,14 +191,13 @@ function finalizarJuego() {
   document.getElementById("total-errores").textContent = errores;
 }
 
-function iniciarJuego(cantidad) {
-  cantidadLetras = cantidad;
+function iniciarJuego(n) {
+  cantidadLetras = n;
   letrasDisponibles = [...letrasData];
   aciertos = 0;
   errores = 0;
-  aciertosEl.textContent = "0";
-  erroresEl.textContent = "0";
-
+  aciertosEl.textContent = aciertos;
+  erroresEl.textContent = errores;
   document.getElementById("pantalla-instrucciones").classList.add("oculto");
   document.getElementById("pantalla-juego").classList.remove("oculto");
   generarGrupoLetras();
