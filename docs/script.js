@@ -63,8 +63,8 @@ function ajustarTexto(div, nombre) {
   if (["Hache", "Equis"].includes(nombre)) {
     div.style.fontSize = "35px";
   } else if (["Uve doble", "I griega"].includes(nombre)) {
-    div.style.fontSize = "35px";
-    div.style.lineHeight = "1";
+    div.style.fontSize = "30px";
+    div.style.lineHeight = "0.5";
     div.style.textAlign = "center";
   } else {
     div.style.fontSize = "50px";
