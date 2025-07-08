@@ -59,6 +59,18 @@ function elegirGrupo(letras, cantidad) {
   return grupo;
 }
 
+function ajustarTexto(div, nombre) {
+  if (["Hache", "Equis"].includes(nombre)) {
+    div.style.fontSize = "35px";
+  } else if (["Uve doble", "I griega"].includes(nombre)) {
+    div.style.fontSize = "35px";
+    div.style.lineHeight = "1";
+    div.style.textAlign = "center";
+  } else {
+    div.style.fontSize = "50px";
+  }
+}
+
 function generarGrupoLetras() {
   campoJuego.innerHTML = "";
   bloqueoClicks = false;
@@ -112,6 +124,7 @@ function manejarClick(letraObj) {
     reproducirAudio("assets/audio/interaccion/ding.mp3");
     letraData.el.style.backgroundColor = "green";
     letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
     aciertos++;
     aciertosEl.textContent = aciertos;
     bloqueoClicks = true;
