@@ -35,6 +35,7 @@ const letrasData = [
 const campoJuego = document.getElementById("campo-juego");
 const aciertosEl = document.getElementById("aciertos");
 const erroresEl = document.getElementById("errores");
+let cantidadLetras = 4;
 
 let letrasDisponibles = [...letrasData];
 let letrasEnPantalla = [];
@@ -42,7 +43,6 @@ let letraCorrecta;
 let aciertos = 0;
 let errores = 0;
 let bloqueoClicks = false;
-let cantidadLetras = 4;
 
 function reproducirAudio(ruta) {
   const audio = new Audio(ruta);
@@ -59,17 +59,26 @@ function elegirGrupo(letras, cantidad) {
   return grupo;
 }
 
+function ajustarTexto(div, nombre) {
+  if (["Hache", "Equis"].includes(nombre)) {
+    div.style.fontSize = "35px";
+  } else if (["Uve doble", "I griega"].includes(nombre)) {
+    div.style.fontSize = "35px";
+    div.style.lineHeight = "1";
+    div.style.textAlign = "center";
+  } else {
+    div.style.fontSize = "50px";
+  }
+}
+
 function generarGrupoLetras() {
   campoJuego.innerHTML = "";
   bloqueoClicks = false;
   letrasEnPantalla = [];
 
-  if (letrasDisponibles.length < cantidadLetras) {
-    finalizarJuego();
-    return;
-  }
-
+  if (letrasDisponibles.length < cantidadLetras) return finalizarJuego();
   const grupo = elegirGrupo(letrasDisponibles, cantidadLetras);
+
   letraCorrecta = grupo[Math.floor(Math.random() * grupo.length)];
   reproducirAudio(`assets/audio/letras/${letraCorrecta.audio}`);
 
@@ -80,8 +89,8 @@ function generarGrupoLetras() {
 
     const x = Math.random() * (campoJuego.clientWidth - 100);
     const y = Math.random() * (campoJuego.clientHeight - 100);
-    const dx = (Math.random() - 0.5) * 6;
-    const dy = (Math.random() - 0.5) * 6;
+    const dx = (Math.random() - 0.5) * 8;
+    const dy = (Math.random() - 0.5) * 8;
 
     div.style.left = `${x}px`;
     div.style.top = `${y}px`;
@@ -105,24 +114,28 @@ function generarGrupoLetras() {
 
 function manejarClick(letraObj) {
   if (bloqueoClicks) return;
-  const letraData = letrasEnPantalla.find(l => l.letra === letraObj.letra);
-  if (!letraData) return;
+
+  const letraIndex = letrasEnPantalla.findIndex(l => l.letra === letraObj.letra);
+  if (letraIndex === -1) return;
+
+  const letraData = letrasEnPantalla[letraIndex];
+  letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraObj.letra);
+  bloqueoClicks = true;
 
   if (letraObj.letra === letraCorrecta.letra) {
     reproducirAudio("assets/audio/interaccion/ding.mp3");
     letraData.el.style.backgroundColor = "green";
     letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
     aciertos++;
     aciertosEl.textContent = aciertos;
-    bloqueoClicks = true;
-    letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraCorrecta.letra);
   } else {
     reproducirAudio("assets/audio/interaccion/buzz.mp3");
     letraData.el.style.backgroundColor = "red";
     letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
     errores++;
     erroresEl.textContent = errores;
-    letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraObj.letra);
   }
 
   setTimeout(() => {
@@ -131,7 +144,7 @@ function manejarClick(letraObj) {
 }
 
 function animarLetras() {
-  letrasEnPantalla.forEach((letra, i) => {
+  letrasEnPantalla.forEach((letra) => {
     letra.x += letra.dx;
     letra.y += letra.dy;
 
@@ -140,21 +153,6 @@ function animarLetras() {
     }
     if (letra.y <= 0 || letra.y >= campoJuego.clientHeight - 100) {
       letra.dy *= -1;
-    }
-
-    // Verificar colisiones con otros círculos
-    for (let j = i + 1; j < letrasEnPantalla.length; j++) {
-      const otro = letrasEnPantalla[j];
-      const dx = letra.x - otro.x;
-      const dy = letra.y - otro.y;
-      const distancia = Math.sqrt(dx * dx + dy * dy);
-      if (distancia < 100) {
-        // Rebote simple
-        letra.dx *= -1;
-        letra.dy *= -1;
-        otro.dx *= -1;
-        otro.dy *= -1;
-      }
     }
 
     letra.el.style.left = `${letra.x}px`;
@@ -171,14 +169,8 @@ function finalizarJuego() {
   document.getElementById("total-errores").textContent = errores;
 }
 
-function iniciarJuego(cantidad) {
-  cantidadLetras = cantidad;
-  letrasDisponibles = [...letrasData];
-  aciertos = 0;
-  errores = 0;
-  aciertosEl.textContent = "0";
-  erroresEl.textContent = "0";
-
+function iniciarJuego(n) {
+  cantidadLetras = n;
   document.getElementById("pantalla-instrucciones").classList.add("oculto");
   document.getElementById("pantalla-juego").classList.remove("oculto");
   generarGrupoLetras();
@@ -188,4 +180,9 @@ function iniciarJuego(cantidad) {
 document.getElementById("btn-reiniciar").addEventListener("click", () => {
   document.getElementById("pantalla-final").classList.add("oculto");
   document.getElementById("pantalla-instrucciones").classList.remove("oculto");
+  letrasDisponibles = [...letrasData];
+  aciertos = 0;
+  errores = 0;
+  aciertosEl.textContent = aciertos;
+  erroresEl.textContent = errores;
 });
