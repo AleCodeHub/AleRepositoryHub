@@ -70,11 +70,11 @@ body, html {
 #pantalla-instrucciones h1 {
   font-size: 28px; /* o más grande según necesites */
   text-align: center;
-  margin: 20px;
+  margin: 30px;
 }
 
 #pantalla-instrucciones p {
-  font-size: 22px;
+  font-size: 32px;
   text-align: center;
 }
 
