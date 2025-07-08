@@ -133,6 +133,7 @@ function manejarClick(letraObj) {
     reproducirAudio("assets/audio/interaccion/buzz.mp3");
     letraData.el.style.backgroundColor = "red";
     letraData.el.textContent = letraObj.nombre;
+    ajustarTexto(letraData.el, letraObj.nombre);
     errores++;
     erroresEl.textContent = errores;
     letrasDisponibles = letrasDisponibles.filter(l => l.letra !== letraObj.letra);
