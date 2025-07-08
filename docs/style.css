@@ -41,9 +41,13 @@ body, html {
 }
 
 
-.letra-circulo:hover {
-  background: #51d7f8;
+@media (hover: hover) {
+  .letra-circulo:hover {
+    background: #51d7f8;
+  }
 }
+
+
 
 .letra-circulo {
   position: absolute;
