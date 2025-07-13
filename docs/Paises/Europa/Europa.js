@@ -1691,7 +1691,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
-(lib.042Armenia = function(mode,startPosition,loop) {
+(lib.042_Armenia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
@@ -3814,11 +3814,11 @@ p.nominalBounds = new cjs.Rectangle(-46.1,-30.8,92.5,61.7);
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(146.15,651.95,0.5,0.5);
 
-	this.btnArmenia = new lib.042Armenia();
+	this.btnArmenia = new lib.042_Armenia();
 	this.btnArmenia.name = "btnArmenia";
 	this.btnArmenia.parent = this;
 	this.btnArmenia.setTransform(610.7,698.05,1.2811,1.2762,0,0,0,6.4,7.2);
-	new cjs.ButtonHelper(this.btnArmenia, 0, 1, 2, false, new lib.042Armenia(), 3);
+	new cjs.ButtonHelper(this.btnArmenia, 0, 1, 2, false, new lib.042_Armenia(), 3);
 
 	this.btnKosovo = new lib.Kosovo();
 	this.btnKosovo.name = "btnKosovo";
