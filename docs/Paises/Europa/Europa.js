@@ -1691,12 +1691,12 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
-(lib.042_Armenia = function(mode,startPosition,loop) {
+(lib._042_Armenia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("042");
+		playSound("_042");
 	}
 
 	// actions tween:
@@ -1725,12 +1725,12 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 p.nominalBounds = new cjs.Rectangle(-13.5,-13.7,27.3,27.299999999999997);
 
 
-(lib.041_Kosovo = function(mode,startPosition,loop) {
+(lib._041_Kosovo = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("041");
+		playSound("_041");
 	}
 
 	// actions tween:
@@ -1759,12 +1759,12 @@ p.nominalBounds = new cjs.Rectangle(-13.5,-13.7,27.3,27.299999999999997);
 p.nominalBounds = new cjs.Rectangle(-8.3,-9.8,16.8,19.6);
 
 
-(lib.040_Montenegro = function(mode,startPosition,loop) {
+(lib._040_Montenegro = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("040");
+		playSound("_040");
 	}
 
 	// actions tween:
@@ -1793,12 +1793,12 @@ p.nominalBounds = new cjs.Rectangle(-8.3,-9.8,16.8,19.6);
 p.nominalBounds = new cjs.Rectangle(-7.5,-8.2,15.2,16.799999999999997);
 
 
-(lib.039_Macedonia = function(mode,startPosition,loop) {
+(lib._039_Macedonia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("039");
+		playSound("_039");
 	}
 
 	// actions tween:
@@ -1827,12 +1827,12 @@ p.nominalBounds = new cjs.Rectangle(-7.5,-8.2,15.2,16.799999999999997);
 p.nominalBounds = new cjs.Rectangle(-10.4,-8,21.1,16.4);
 
 
-(lib.038_Azerbaiyan = function(mode,startPosition,loop) {
+(lib._038_Azerbaiyan = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("038");
+		playSound("_038");
 	}
 
 	// actions tween:
@@ -1869,12 +1869,12 @@ p.nominalBounds = new cjs.Rectangle(-10.4,-8,21.1,16.4);
 p.nominalBounds = new cjs.Rectangle(-18.6,-19.3,37.400000000000006,38.7);
 
 
-(lib.037_Georgia = function(mode,startPosition,loop) {
+(lib._037_Georgia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("037");
+		playSound("_037");
 	}
 
 	// actions tween:
@@ -1907,12 +1907,12 @@ p.nominalBounds = new cjs.Rectangle(-18.6,-19.3,37.400000000000006,38.7);
 p.nominalBounds = new cjs.Rectangle(-27.8,-13.9,55.8,28.1);
 
 
-(lib.036_Polonia = function(mode,startPosition,loop) {
+(lib._036_Polonia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("036");
+		playSound("_036");
 	}
 
 	// actions tween:
@@ -1941,12 +1941,12 @@ p.nominalBounds = new cjs.Rectangle(-27.8,-13.9,55.8,28.1);
 p.nominalBounds = new cjs.Rectangle(-41.7,-38.1,83.5,76.1);
 
 
-(lib.035_Luxemburgo = function(mode,startPosition,loop) {
+(lib._035_Luxemburgo = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("035");
+		playSound("_035");
 	}
 
 	// actions tween:
@@ -1971,12 +1971,12 @@ p.nominalBounds = new cjs.Rectangle(-41.7,-38.1,83.5,76.1);
 p.nominalBounds = new cjs.Rectangle(-4.2,-6.1,8.600000000000001,12.5);
 
 
-(lib.034_Dinamarca = function(mode,startPosition,loop) {
+(lib._034_Dinamarca = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("034");
+		playSound("_034");
 	}
 
 	// actions tween:
@@ -2021,12 +2021,12 @@ p.nominalBounds = new cjs.Rectangle(-4.2,-6.1,8.600000000000001,12.5);
 p.nominalBounds = new cjs.Rectangle(-16.5,-22.8,33.2,45.7);
 
 
-(lib.033_Rusia = function(mode,startPosition,loop) {
+(lib._033_Rusia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("033");
+		playSound("_033");
 	}
 
 	// actions tween:
@@ -2071,12 +2071,12 @@ p.nominalBounds = new cjs.Rectangle(-16.5,-22.8,33.2,45.7);
 p.nominalBounds = new cjs.Rectangle(-121.4,-224.2,241.5,448.5);
 
 
-(lib.032_Ucrania = function(mode,startPosition,loop) {
+(lib._032_Ucrania = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("032");
+		playSound("_032");
 	}
 
 	// actions tween:
@@ -2105,12 +2105,12 @@ p.nominalBounds = new cjs.Rectangle(-121.4,-224.2,241.5,448.5);
 p.nominalBounds = new cjs.Rectangle(-74.6,-49.9,149.3,100.1);
 
 
-(lib.031_Bielorrusia = function(mode,startPosition,loop) {
+(lib._031_Bielorrusia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("031");
+		playSound("_031");
 	}
 
 	// actions tween:
@@ -2139,12 +2139,12 @@ p.nominalBounds = new cjs.Rectangle(-74.6,-49.9,149.3,100.1);
 p.nominalBounds = new cjs.Rectangle(-39.6,-34,79.4,68.3);
 
 
-(lib.030_Lituania = function(mode,startPosition,loop) {
+(lib._030_Lituania = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("030");
+		playSound("_030");
 	}
 
 	// actions tween:
@@ -2173,12 +2173,12 @@ p.nominalBounds = new cjs.Rectangle(-39.6,-34,79.4,68.3);
 p.nominalBounds = new cjs.Rectangle(-23.6,-18.2,47.3,36.599999999999994);
 
 
-(lib.029_Letonia = function(mode,startPosition,loop) {
+(lib._029_Letonia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("029");
+		playSound("_029");
 	}
 
 	// actions tween:
@@ -2207,12 +2207,12 @@ p.nominalBounds = new cjs.Rectangle(-23.6,-18.2,47.3,36.599999999999994);
 p.nominalBounds = new cjs.Rectangle(-30,-17.6,60.1,35.2);
 
 
-(lib.028_Estonia = function(mode,startPosition,loop) {
+(lib._028_Estonia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("028");
+		playSound("_028");
 	}
 
 	// actions tween:
@@ -2241,12 +2241,12 @@ p.nominalBounds = new cjs.Rectangle(-30,-17.6,60.1,35.2);
 p.nominalBounds = new cjs.Rectangle(-19.9,-17.1,39.8,34.400000000000006);
 
 
-(lib.027_Finlandia = function(mode,startPosition,loop) {
+(lib._027_Finlandia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("027");
+		playSound("_027");
 	}
 
 	// actions tween:
@@ -2283,12 +2283,12 @@ p.nominalBounds = new cjs.Rectangle(-19.9,-17.1,39.8,34.400000000000006);
 p.nominalBounds = new cjs.Rectangle(-45.9,-102.3,91.9,204.7);
 
 
-(lib.026_Suecia = function(mode,startPosition,loop) {
+(lib._026_Suecia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("026");
+		playSound("_026");
 	}
 
 	// actions tween:
@@ -2333,12 +2333,12 @@ p.nominalBounds = new cjs.Rectangle(-45.9,-102.3,91.9,204.7);
 p.nominalBounds = new cjs.Rectangle(-54.1,-124.2,108.2,248.7);
 
 
-(lib.025_Noruega = function(mode,startPosition,loop) {
+(lib._025_Noruega = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("025");
+		playSound("_025");
 	}
 
 	// actions tween:
@@ -2383,12 +2383,12 @@ p.nominalBounds = new cjs.Rectangle(-54.1,-124.2,108.2,248.7);
 p.nominalBounds = new cjs.Rectangle(-108.7,-128.8,217.4,257.9);
 
 
-(lib.024_Turquia = function(mode,startPosition,loop) {
+(lib._024_Turquia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("024");
+		playSound("_024");
 	}
 
 	// actions tween:
@@ -2433,12 +2433,12 @@ p.nominalBounds = new cjs.Rectangle(-108.7,-128.8,217.4,257.9);
 p.nominalBounds = new cjs.Rectangle(-78,-33.1,156.1,66.30000000000001);
 
 
-(lib.023_Grecia = function(mode,startPosition,loop) {
+(lib._023_Grecia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("023");
+		playSound("_023");
 	}
 
 	// actions tween:
@@ -2483,12 +2483,12 @@ p.nominalBounds = new cjs.Rectangle(-78,-33.1,156.1,66.30000000000001);
 p.nominalBounds = new cjs.Rectangle(-27.5,-28.6,55,57.5);
 
 
-(lib.022_Bulgaria = function(mode,startPosition,loop) {
+(lib._022_Bulgaria = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("022");
+		playSound("_022");
 	}
 
 	// actions tween:
@@ -2525,12 +2525,12 @@ p.nominalBounds = new cjs.Rectangle(-27.5,-28.6,55,57.5);
 p.nominalBounds = new cjs.Rectangle(-25.9,-16.3,51.9,32.8);
 
 
-(lib.021_Moldavia = function(mode,startPosition,loop) {
+(lib._021_Moldavia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("021");
+		playSound("_021");
 	}
 
 	// actions tween:
@@ -2559,12 +2559,12 @@ p.nominalBounds = new cjs.Rectangle(-25.9,-16.3,51.9,32.8);
 p.nominalBounds = new cjs.Rectangle(-18.8,-21.4,37.400000000000006,42.8);
 
 
-(lib.020_Rumania = function(mode,startPosition,loop) {
+(lib._020_Rumania = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("020");
+		playSound("_020");
 	}
 
 	// actions tween:
@@ -2609,12 +2609,12 @@ p.nominalBounds = new cjs.Rectangle(-18.8,-21.4,37.400000000000006,42.8);
 p.nominalBounds = new cjs.Rectangle(-39,-27.4,78,54.9);
 
 
-(lib.019_Albania = function(mode,startPosition,loop) {
+(lib._019_Albania = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("019");
+		playSound("_019");
 	}
 
 	// actions tween:
@@ -2651,12 +2651,12 @@ p.nominalBounds = new cjs.Rectangle(-39,-27.4,78,54.9);
 p.nominalBounds = new cjs.Rectangle(-7.2,-16.6,14.5,33.3);
 
 
-(lib.018_Serbia = function(mode,startPosition,loop) {
+(lib._018_Serbia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("018");
+		playSound("_018");
 	}
 
 	// actions tween:
@@ -2685,12 +2685,12 @@ p.nominalBounds = new cjs.Rectangle(-7.2,-16.6,14.5,33.3);
 p.nominalBounds = new cjs.Rectangle(-17.1,-24.6,34.400000000000006,49.6);
 
 
-(lib.017_Hungria = function(mode,startPosition,loop) {
+(lib._017_Hungria = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("017");
+		playSound("_017");
 	}
 
 	// actions tween:
@@ -2719,12 +2719,12 @@ p.nominalBounds = new cjs.Rectangle(-17.1,-24.6,34.400000000000006,49.6);
 p.nominalBounds = new cjs.Rectangle(-28.1,-17,56.6,34);
 
 
-(lib.016_Eslovaquia = function(mode,startPosition,loop) {
+(lib._016_Eslovaquia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("016");
+		playSound("_016");
 	}
 
 	// actions tween:
@@ -2753,12 +2753,12 @@ p.nominalBounds = new cjs.Rectangle(-28.1,-17,56.6,34);
 p.nominalBounds = new cjs.Rectangle(-23.3,-11.6,46.8,23.299999999999997);
 
 
-(lib.015_BosniayHerzegovina = function(mode,startPosition,loop) {
+(lib._015_BosniayHerzegovina = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("015");
+		playSound("_015");
 	}
 
 	// actions tween:
@@ -2787,12 +2787,12 @@ p.nominalBounds = new cjs.Rectangle(-23.3,-11.6,46.8,23.299999999999997);
 p.nominalBounds = new cjs.Rectangle(-16.3,-16.3,32.5,32.900000000000006);
 
 
-(lib.014_Croacia = function(mode,startPosition,loop) {
+(lib._014_Croacia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("014");
+		playSound("_014");
 	}
 
 	// actions tween:
@@ -2837,12 +2837,12 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-16.3,32.5,32.900000000000006);
 p.nominalBounds = new cjs.Rectangle(-24.4,-21,48.8,42.3);
 
 
-(lib.013_Eslovenia = function(mode,startPosition,loop) {
+(lib._013_Eslovenia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("013");
+		playSound("_013");
 	}
 
 	// actions tween:
@@ -2879,12 +2879,12 @@ p.nominalBounds = new cjs.Rectangle(-24.4,-21,48.8,42.3);
 p.nominalBounds = new cjs.Rectangle(-13,-8.5,26.1,17.2);
 
 
-(lib.012_Austria = function(mode,startPosition,loop) {
+(lib._012_Austria = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("012");
+		playSound("_012");
 	}
 
 	// actions tween:
@@ -2921,12 +2921,12 @@ p.nominalBounds = new cjs.Rectangle(-13,-8.5,26.1,17.2);
 p.nominalBounds = new cjs.Rectangle(-31.6,-16.1,63.2,32.400000000000006);
 
 
-(lib.011_Rcheca = function(mode,startPosition,loop) {
+(lib._011_Rcheca = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("011");
+		playSound("_011");
 	}
 
 	// actions tween:
@@ -2963,12 +2963,12 @@ p.nominalBounds = new cjs.Rectangle(-31.6,-16.1,63.2,32.400000000000006);
 p.nominalBounds = new cjs.Rectangle(-28,-15.7,56.4,31.6);
 
 
-(lib.010_Alemania = function(mode,startPosition,loop) {
+(lib._010_Alemania = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("010");
+		playSound("_010");
 	}
 
 	// actions tween:
@@ -3005,12 +3005,12 @@ p.nominalBounds = new cjs.Rectangle(-28,-15.7,56.4,31.6);
 p.nominalBounds = new cjs.Rectangle(-38,-50.4,76.1,100.8);
 
 
-(lib.009_Holanda = function(mode,startPosition,loop) {
+(lib._009_Holanda = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("009");
+		playSound("_009");
 	}
 
 	// actions tween:
@@ -3031,12 +3031,12 @@ p.nominalBounds = new cjs.Rectangle(-38,-50.4,76.1,100.8);
 p.nominalBounds = new cjs.Rectangle(-16.3,-18.7,32.8,37.4);
 
 
-(lib.008_Italia = function(mode,startPosition,loop) {
+(lib._008_Italia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("008");
+		playSound("_008");
 	}
 
 	// actions tween:
@@ -3069,12 +3069,12 @@ p.nominalBounds = new cjs.Rectangle(-16.3,-18.7,32.8,37.4);
 p.nominalBounds = new cjs.Rectangle(-49.4,-58.3,99.19999999999999,116.69999999999999);
 
 
-(lib.007_Suiza = function(mode,startPosition,loop) {
+(lib._007_Suiza = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("007");
+		playSound("_007");
 	}
 
 	// actions tween:
@@ -3103,12 +3103,12 @@ p.nominalBounds = new cjs.Rectangle(-49.4,-58.3,99.19999999999999,116.6999999999
 p.nominalBounds = new cjs.Rectangle(-18.6,-12.5,37.400000000000006,25.4);
 
 
-(lib.006_Belgica = function(mode,startPosition,loop) {
+(lib._006_Belgica = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("006");
+		playSound("_006");
 	}
 
 	// actions tween:
@@ -3137,12 +3137,12 @@ p.nominalBounds = new cjs.Rectangle(-18.6,-12.5,37.400000000000006,25.4);
 p.nominalBounds = new cjs.Rectangle(-15.8,-12.6,31.700000000000003,25.299999999999997);
 
 
-(lib.005_Francia = function(mode,startPosition,loop) {
+(lib._005_Francia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("005");
+		playSound("_005");
 	}
 
 	// actions tween:
@@ -3187,12 +3187,12 @@ p.nominalBounds = new cjs.Rectangle(-15.8,-12.6,31.700000000000003,25.2999999999
 p.nominalBounds = new cjs.Rectangle(-53.4,-53,106.9,106.3);
 
 
-(lib.004_Esapana = function(mode,startPosition,loop) {
+(lib._004_Esapana = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("004");
+		playSound("_004");
 	}
 
 	// actions tween:
@@ -3229,12 +3229,12 @@ p.nominalBounds = new cjs.Rectangle(-53.4,-53,106.9,106.3);
 p.nominalBounds = new cjs.Rectangle(-51.9,-41.3,103.8,82.8);
 
 
-(lib.003_Portugal = function(mode,startPosition,loop) {
+(lib._003_Portugal = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("003");
+		playSound("_003");
 	}
 
 	// actions tween:
@@ -3263,12 +3263,12 @@ p.nominalBounds = new cjs.Rectangle(-51.9,-41.3,103.8,82.8);
 p.nominalBounds = new cjs.Rectangle(-13.1,-27.5,26.5,55.1);
 
 
-(lib.002_Inglaterra = function(mode,startPosition,loop) {
+(lib._002_Inglaterra = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("002");
+		playSound("_002");
 	}
 
 	// actions tween:
@@ -3321,12 +3321,12 @@ p.nominalBounds = new cjs.Rectangle(-13.1,-27.5,26.5,55.1);
 p.nominalBounds = new cjs.Rectangle(-40.5,-61.6,81.3,123.4);
 
 
-(lib.001_Irlanda = function(mode,startPosition,loop) {
+(lib._001_Irlanda = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("001");
+		playSound("_001");
 	}
 
 	// actions tween:
@@ -3371,12 +3371,12 @@ p.nominalBounds = new cjs.Rectangle(-40.5,-61.6,81.3,123.4);
 p.nominalBounds = new cjs.Rectangle(-18.6,-26.8,37.5,53.8);
 
 
-(lib.000_Islandia = function(mode,startPosition,loop) {
+(lib._000_Islandia = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_2 = function() {
-		playSound("000");
+		playSound("_000");
 	}
 
 	// actions tween:
@@ -3415,7 +3415,7 @@ p.nominalBounds = new cjs.Rectangle(-46.1,-30.8,92.5,61.7);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
-	this.frame0 = function() {
+	this.frame_0 = function() {
 		var _this = this;
 		
 		stage.enableMouseOver(3);
@@ -3788,7 +3788,7 @@ p.nominalBounds = new cjs.Rectangle(-46.1,-30.8,92.5,61.7);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame0).wait(10));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(10));
 
 	// Texto
 	this.textPais = new cjs.Text("Europa", "bold 70px 'Helvetica'");
@@ -3814,263 +3814,263 @@ p.nominalBounds = new cjs.Rectangle(-46.1,-30.8,92.5,61.7);
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(146.15,651.95,0.5,0.5);
 
-	this.btnArmenia = new lib.042_Armenia();
+	this.btnArmenia = new lib._042_Armenia();
 	this.btnArmenia.name = "btnArmenia";
 	this.btnArmenia.parent = this;
 	this.btnArmenia.setTransform(610.7,698.05,1.2811,1.2762,0,0,0,6.4,7.2);
-	new cjs.ButtonHelper(this.btnArmenia, 0, 1, 2, false, new lib.042_Armenia(), 3);
+	new cjs.ButtonHelper(this.btnArmenia, 0, 1, 2, false, new lib._042_Armenia(), 3);
 
-	this.btnKosovo = new lib.041_Kosovo();
+	this.btnKosovo = new lib._041_Kosovo();
 	this.btnKosovo.name = "btnKosovo";
 	this.btnKosovo.parent = this;
 	this.btnKosovo.setTransform(342.3,658.45,1.2811,1.2762,0,0,0,7.9,8.1);
-	new cjs.ButtonHelper(this.btnKosovo, 0, 1, 2, false, new lib.041_Kosovo(), 3);
+	new cjs.ButtonHelper(this.btnKosovo, 0, 1, 2, false, new lib._041_Kosovo(), 3);
 
-	this.btnMontenegro = new lib.040_Montenegro();
+	this.btnMontenegro = new lib._040_Montenegro();
 	this.btnMontenegro.name = "btnMontenegro";
 	this.btnMontenegro.parent = this;
 	this.btnMontenegro.setTransform(363.95,664.75,1.2811,1.2762,0,0,0,8,7.5);
-	new cjs.ButtonHelper(this.btnMontenegro, 0, 1, 2, false, new lib.040_Montenegro(), 3);
+	new cjs.ButtonHelper(this.btnMontenegro, 0, 1, 2, false, new lib._040_Montenegro(), 3);
 
-	this.btnMacedonia = new lib.039_Macedonia();
+	this.btnMacedonia = new lib._039_Macedonia();
 	this.btnMacedonia.name = "btnMacedonia";
 	this.btnMacedonia.parent = this;
 	this.btnMacedonia.setTransform(372.25,677.65,1.2811,1.2762,0,0,0,6.9,7.7);
-	new cjs.ButtonHelper(this.btnMacedonia, 0, 1, 2, false, new lib.039_Macedonia(), 3);
+	new cjs.ButtonHelper(this.btnMacedonia, 0, 1, 2, false, new lib._039_Macedonia(), 3);
 
-	this.btnAzerbaiyan = new lib.038_Azerbaiyan();
+	this.btnAzerbaiyan = new lib._038_Azerbaiyan();
 	this.btnAzerbaiyan.name = "btnAzerbaiyan";
 	this.btnAzerbaiyan.parent = this;
 	this.btnAzerbaiyan.setTransform(632.25,695.3,1.2811,1.2762,0,0,0,7.5,6.8);
-	new cjs.ButtonHelper(this.btnAzerbaiyan, 0, 1, 2, false, new lib.038_Azerbaiyan(), 3);
+	new cjs.ButtonHelper(this.btnAzerbaiyan, 0, 1, 2, false, new lib._038_Azerbaiyan(), 3);
 
-	this.btnGeorgia = new lib.037_Georgia();
+	this.btnGeorgia = new lib._037_Georgia();
 	this.btnGeorgia.name = "btnGeorgia";
 	this.btnGeorgia.parent = this;
 	this.btnGeorgia.setTransform(593.5,666.9,1.2811,1.2762,0,0,0,8,7.5);
-	new cjs.ButtonHelper(this.btnGeorgia, 0, 1, 2, false, new lib.037_Georgia(), 3);
+	new cjs.ButtonHelper(this.btnGeorgia, 0, 1, 2, false, new lib._037_Georgia(), 3);
 
-	this.btnPolonia = new lib.036_Polonia();
+	this.btnPolonia = new lib._036_Polonia();
 	this.btnPolonia.name = "btnPolonia";
 	this.btnPolonia.parent = this;
 	this.btnPolonia.setTransform(338.85,520.3,1.2811,1.2762,0,0,0,7.6,10.3);
-	new cjs.ButtonHelper(this.btnPolonia, 0, 1, 2, false, new lib.036_Polonia(), 3);
+	new cjs.ButtonHelper(this.btnPolonia, 0, 1, 2, false, new lib._036_Polonia(), 3);
 
-	this.btnLuxemburgo = new lib.035_Luxemburgo();
+	this.btnLuxemburgo = new lib._035_Luxemburgo();
 	this.btnLuxemburgo.name = "btnLuxemburgo";
 	this.btnLuxemburgo.parent = this;
 	this.btnLuxemburgo.setTransform(204.45,557.05,1.2811,1.2762,0,0,0,6.7,9.8);
-	new cjs.ButtonHelper(this.btnLuxemburgo, 0, 1, 2, false, new lib.035_Luxemburgo(), 3);
+	new cjs.ButtonHelper(this.btnLuxemburgo, 0, 1, 2, false, new lib._035_Luxemburgo(), 3);
 
-	this.btnDinamarca = new lib.034_Dinamarca();
+	this.btnDinamarca = new lib._034_Dinamarca();
 	this.btnDinamarca.name = "btnDinamarca";
 	this.btnDinamarca.parent = this;
 	this.btnDinamarca.setTransform(247.15,441.6,1.2811,1.2762,0,0,0,6.4,10);
-	new cjs.ButtonHelper(this.btnDinamarca, 0, 1, 2, false, new lib.034_Dinamarca(), 3);
+	new cjs.ButtonHelper(this.btnDinamarca, 0, 1, 2, false, new lib._034_Dinamarca(), 3);
 
-	this.btnSuiza = new lib.007_Suiza();
+	this.btnSuiza = new lib._007_Suiza();
 	this.btnSuiza.name = "btnSuiza";
 	this.btnSuiza.parent = this;
 	this.btnSuiza.setTransform(227.95,602.85,1.2811,1.2762,0,0,0,7.8,9.2);
-	new cjs.ButtonHelper(this.btnSuiza, 0, 1, 2, false, new lib.007_Suiza(), 3);
+	new cjs.ButtonHelper(this.btnSuiza, 0, 1, 2, false, new lib._007_Suiza(), 3);
 
-	this.btnRusia = new lib.033_Rusia();
+	this.btnRusia = new lib._033_Rusia();
 	this.btnRusia.name = "btnRusia";
 	this.btnRusia.parent = this;
 	this.btnRusia.setTransform(503.7,401,1.2811,1.2762,0,0,0,8.1,10.1);
-	new cjs.ButtonHelper(this.btnRusia, 0, 1, 2, false, new lib.033_Rusia(), 3);
+	new cjs.ButtonHelper(this.btnRusia, 0, 1, 2, false, new lib._033_Rusia(), 3);
 
-	this.btnUcrania = new lib.032_Ucrania();
+	this.btnUcrania = new lib._032_Ucrania();
 	this.btnUcrania.name = "btnUcrania";
 	this.btnUcrania.parent = this;
 	this.btnUcrania.setTransform(466.4,575.2,1.2811,1.3637,0,-0.043,0.6006,8.6,8.7);
-	new cjs.ButtonHelper(this.btnUcrania, 0, 1, 2, false, new lib.032_Ucrania(), 3);
+	new cjs.ButtonHelper(this.btnUcrania, 0, 1, 2, false, new lib._032_Ucrania(), 3);
 
-	this.btnBielorrusia = new lib.031_Bielorrusia();
+	this.btnBielorrusia = new lib._031_Bielorrusia();
 	this.btnBielorrusia.name = "btnBielorrusia";
 	this.btnBielorrusia.parent = this;
 	this.btnBielorrusia.setTransform(433.3,490.6,1.3148,1.3841,0,0,0,9.8,10.2);
-	new cjs.ButtonHelper(this.btnBielorrusia, 0, 1, 2, false, new lib.031_Bielorrusia(), 3);
+	new cjs.ButtonHelper(this.btnBielorrusia, 0, 1, 2, false, new lib._031_Bielorrusia(), 3);
 
-	this.btnLituania = new lib.030_Lituania();
+	this.btnLituania = new lib._030_Lituania();
 	this.btnLituania.name = "btnLituania";
 	this.btnLituania.parent = this;
 	this.btnLituania.setTransform(392.9,463.1,1.3655,1.2762,0,0,0,8.4,10.2);
-	new cjs.ButtonHelper(this.btnLituania, 0, 1, 2, false, new lib.030_Lituania(), 3);
+	new cjs.ButtonHelper(this.btnLituania, 0, 1, 2, false, new lib._030_Lituania(), 3);
 
-	this.btnLetonia = new lib.029_Letonia();
+	this.btnLetonia = new lib._029_Letonia();
 	this.btnLetonia.name = "btnLetonia";
 	this.btnLetonia.parent = this;
 	this.btnLetonia.setTransform(399.15,433.7,1.2811,1.2762,0,0,0,8.2,9.2);
-	new cjs.ButtonHelper(this.btnLetonia, 0, 1, 2, false, new lib.029_Letonia(), 3);
+	new cjs.ButtonHelper(this.btnLetonia, 0, 1, 2, false, new lib._029_Letonia(), 3);
 
-	this.btnEstonia = new lib.028_Estonia();
+	this.btnEstonia = new lib._028_Estonia();
 	this.btnEstonia.name = "btnEstonia";
 	this.btnEstonia.parent = this;
 	this.btnEstonia.setTransform(410.8,401.95,1.2811,1.2762,0,0,0,7,10.2);
-	new cjs.ButtonHelper(this.btnEstonia, 0, 1, 2, false, new lib.028_Estonia(), 3);
+	new cjs.ButtonHelper(this.btnEstonia, 0, 1, 2, false, new lib._028_Estonia(), 3);
 
-	this.btnFinlandia = new lib.027_Finlandia();
+	this.btnFinlandia = new lib._027_Finlandia();
 	this.btnFinlandia.name = "btnFinlandia";
 	this.btnFinlandia.parent = this;
 	this.btnFinlandia.setTransform(417.35,237.85,1.2696,1.2901,0,0,0,7.4,8.3);
-	new cjs.ButtonHelper(this.btnFinlandia, 0, 1, 2, false, new lib.027_Finlandia(), 3);
+	new cjs.ButtonHelper(this.btnFinlandia, 0, 1, 2, false, new lib._027_Finlandia(), 3);
 
-	this.btnSuecia = new lib.026_Suecia();
+	this.btnSuecia = new lib._026_Suecia();
 	this.btnSuecia.name = "btnSuecia";
 	this.btnSuecia.parent = this;
 	this.btnSuecia.setTransform(327,298.55,1.2988,1.2762,0,0,0,6.2,11);
-	new cjs.ButtonHelper(this.btnSuecia, 0, 1, 2, false, new lib.026_Suecia(), 3);
+	new cjs.ButtonHelper(this.btnSuecia, 0, 1, 2, false, new lib._026_Suecia(), 3);
 
-	this.btnNoruega = new lib.025_Noruega();
+	this.btnNoruega = new lib._025_Noruega();
 	this.btnNoruega.name = "btnNoruega";
 	this.btnNoruega.parent = this;
 	this.btnNoruega.setTransform(333.95,243.65,1.2316,1.2762,0,0,0,7.6,10.1);
-	new cjs.ButtonHelper(this.btnNoruega, 0, 1, 2, false, new lib.025_Noruega(), 3);
+	new cjs.ButtonHelper(this.btnNoruega, 0, 1, 2, false, new lib._025_Noruega(), 3);
 
-	this.btnTurquia = new lib.024_Turquia();
+	this.btnTurquia = new lib._024_Turquia();
 	this.btnTurquia.name = "btnTurquia";
 	this.btnTurquia.parent = this;
 	this.btnTurquia.setTransform(519.4,701.75,1.2811,1.2762,0,0,0,7.5,7.7);
-	new cjs.ButtonHelper(this.btnTurquia, 0, 1, 2, false, new lib.024_Turquia(), 3);
+	new cjs.ButtonHelper(this.btnTurquia, 0, 1, 2, false, new lib._024_Turquia(), 3);
 
-	this.btnGrecia = new lib.023_Grecia();
+	this.btnGrecia = new lib._023_Grecia();
 	this.btnGrecia.name = "btnGrecia";
 	this.btnGrecia.parent = this;
 	this.btnGrecia.setTransform(389.65,709.6,1.2811,1.2762,0,0,0,8.2,7);
-	new cjs.ButtonHelper(this.btnGrecia, 0, 1, 2, false, new lib.023_Grecia(), 3);
+	new cjs.ButtonHelper(this.btnGrecia, 0, 1, 2, false, new lib._023_Grecia(), 3);
 
-	this.btnBulgaria = new lib.022_Bulgaria();
+	this.btnBulgaria = new lib._022_Bulgaria();
 	this.btnBulgaria.name = "btnBulgaria";
 	this.btnBulgaria.parent = this;
 	this.btnBulgaria.setTransform(403.6,657.85,1.2811,1.2762,0,0,0,7.7,7.9);
-	new cjs.ButtonHelper(this.btnBulgaria, 0, 1, 2, false, new lib.022_Bulgaria(), 3);
+	new cjs.ButtonHelper(this.btnBulgaria, 0, 1, 2, false, new lib._022_Bulgaria(), 3);
 
-	this.btnMoldavia = new lib.021_Moldavia();
+	this.btnMoldavia = new lib._021_Moldavia();
 	this.btnMoldavia.name = "btnMoldavia";
 	this.btnMoldavia.parent = this;
 	this.btnMoldavia.setTransform(438.2,602.35,1.3674,1.2859,0,3.4817,0.5985,8.9,9);
-	new cjs.ButtonHelper(this.btnMoldavia, 0, 1, 2, false, new lib.021_Moldavia(), 3);
+	new cjs.ButtonHelper(this.btnMoldavia, 0, 1, 2, false, new lib._021_Moldavia(), 3);
 
-	this.btnRumania = new lib.020_Rumania();
+	this.btnRumania = new lib._020_Rumania();
 	this.btnRumania.name = "btnRumania";
 	this.btnRumania.parent = this;
 	this.btnRumania.setTransform(399.2,610.75,1.3202,1.3042,0,0,0,8,7.2);
-	new cjs.ButtonHelper(this.btnRumania, 0, 1, 2, false, new lib.020_Rumania(), 3);
+	new cjs.ButtonHelper(this.btnRumania, 0, 1, 2, false, new lib._020_Rumania(), 3);
 
-	this.btnAlbania = new lib.019_Albania();
+	this.btnAlbania = new lib._019_Albania();
 	this.btnAlbania.name = "btnAlbania";
 	this.btnAlbania.parent = this;
 	this.btnAlbania.setTransform(357.45,682.65,1.2811,1.2762,0,0,0,8.6,8);
-	new cjs.ButtonHelper(this.btnAlbania, 0, 1, 2, false, new lib.019_Albania(), 3);
+	new cjs.ButtonHelper(this.btnAlbania, 0, 1, 2, false, new lib._019_Albania(), 3);
 
-	this.btnSerbia = new lib.018_Serbia();
+	this.btnSerbia = new lib._018_Serbia();
 	this.btnSerbia.name = "btnSerbia";
 	this.btnSerbia.parent = this;
 	this.btnSerbia.setTransform(357.8,640.35,1.2811,1.2762,0,0,0,8.6,8.3);
-	new cjs.ButtonHelper(this.btnSerbia, 0, 1, 2, false, new lib.018_Serbia(), 3);
+	new cjs.ButtonHelper(this.btnSerbia, 0, 1, 2, false, new lib._018_Serbia(), 3);
 
-	this.btnHungría = new lib.017_Hungria();
+	this.btnHungría = new lib._017_Hungria();
 	this.btnHungría.name = "btnHungría";
 	this.btnHungría.parent = this;
 	this.btnHungría.setTransform(344.15,595.4,1.2811,1.2762,0,0,0,8.6,8.2);
-	new cjs.ButtonHelper(this.btnHungría, 0, 1, 2, false, new lib.017_Hungria(), 3);
+	new cjs.ButtonHelper(this.btnHungría, 0, 1, 2, false, new lib._017_Hungria(), 3);
 
-	this.btnEslovenia = new lib.013_Eslovenia();
+	this.btnEslovenia = new lib._013_Eslovenia();
 	this.btnEslovenia.name = "btnEslovenia";
 	this.btnEslovenia.parent = this;
 	this.btnEslovenia.setTransform(296.55,609.1,1.397,1.3987,0,-3.9223,0,6.3,7.6);
-	new cjs.ButtonHelper(this.btnEslovenia, 0, 1, 2, false, new lib.013_Eslovenia(), 3);
+	new cjs.ButtonHelper(this.btnEslovenia, 0, 1, 2, false, new lib._013_Eslovenia(), 3);
 
-	this.btnBosnia = new lib.015_BosniayHerzegovina();
+	this.btnBosnia = new lib._015_BosniayHerzegovina();
 	this.btnBosnia.name = "btnBosnia";
 	this.btnBosnia.parent = this;
 	this.btnBosnia.setTransform(324.2,642.25,1.3403,1.288,0,0,0,7.5,8.6);
-	new cjs.ButtonHelper(this.btnBosnia, 0, 1, 2, false, new lib.015_BosniayHerzegovina(), 3);
+	new cjs.ButtonHelper(this.btnBosnia, 0, 1, 2, false, new lib._015_BosniayHerzegovina(), 3);
 
-	this.btnCroacia = new lib.014_Croacia();
+	this.btnCroacia = new lib._014_Croacia();
 	this.btnCroacia.name = "btnCroacia";
 	this.btnCroacia.parent = this;
 	this.btnCroacia.setTransform(312.95,629.05,1.2811,1.3128,0,0,0,7.8,7.3);
-	new cjs.ButtonHelper(this.btnCroacia, 0, 1, 2, false, new lib.014_Croacia(), 3);
+	new cjs.ButtonHelper(this.btnCroacia, 0, 1, 2, false, new lib._014_Croacia(), 3);
 
-	this.btnEslovaquia = new lib.016_Eslovaquia();
+	this.btnEslovaquia = new lib._016_Eslovaquia();
 	this.btnEslovaquia.name = "btnEslovaquia";
 	this.btnEslovaquia.parent = this;
 	this.btnEslovaquia.setTransform(336.55,562.05,1.3267,1.5309,-0.008,0,0,0.4,0.5);
-	new cjs.ButtonHelper(this.btnEslovaquia, 0, 1, 2, false, new lib.016_Eslovaquia(), 3);
+	new cjs.ButtonHelper(this.btnEslovaquia, 0, 1, 2, false, new lib._016_Eslovaquia(), 3);
 
-	this.btnAustria = new lib.012_Austria();
+	this.btnAustria = new lib._012_Austria();
 	this.btnAustria.name = "btnAustria";
 	this.btnAustria.parent = this;
 	this.btnAustria.setTransform(279.8,586,1.2442,1.402,0,0,0,8.2,7.3);
-	new cjs.ButtonHelper(this.btnAustria, 0, 1, 2, false, new lib.012_Austria(), 3);
+	new cjs.ButtonHelper(this.btnAustria, 0, 1, 2, false, new lib._012_Austria(), 3);
 
-	this.btnRcheca = new lib.011_Rcheca();
+	this.btnRcheca = new lib._011_Rcheca();
 	this.btnRcheca.name = "btnRcheca";
 	this.btnRcheca.parent = this;
 	this.btnRcheca.setTransform(290.45,543.05,1.3163,1.3113,0,0,0,-0.1,0.7);
-	new cjs.ButtonHelper(this.btnRcheca, 0, 1, 2, false, new lib.011_Rcheca(), 3);
+	new cjs.ButtonHelper(this.btnRcheca, 0, 1, 2, false, new lib._011_Rcheca(), 3);
 
-	this.btnAlemania = new lib.010_Alemania();
+	this.btnAlemania = new lib._010_Alemania();
 	this.btnAlemania.name = "btnAlemania";
 	this.btnAlemania.parent = this;
 	this.btnAlemania.setTransform(248.55,533.95,1.2811,1.2762,0,0,0,7,10.8);
-	new cjs.ButtonHelper(this.btnAlemania, 0, 1, 2, false, new lib.010_Alemania(), 3);
+	new cjs.ButtonHelper(this.btnAlemania, 0, 1, 2, false, new lib._010_Alemania(), 3);
 
-	this.btnHolanda = new lib.009_Holanda();
+	this.btnHolanda = new lib._009_Holanda();
 	this.btnHolanda.name = "btnHolanda";
 	this.btnHolanda.parent = this;
 	this.btnHolanda.setTransform(195.4,518.35,1.2811,1.2762,0,0,0,6.6,10.2);
-	new cjs.ButtonHelper(this.btnHolanda, 0, 1, 2, false, new lib.009_Holanda(), 3);
+	new cjs.ButtonHelper(this.btnHolanda, 0, 1, 2, false, new lib._009_Holanda(), 3);
 
-	this.btnItalia = new lib.008_Italia();
+	this.btnItalia = new lib._008_Italia();
 	this.btnItalia.name = "btnItalia";
 	this.btnItalia.parent = this;
 	this.btnItalia.setTransform(273.05,670.75,1.2811,1.2762,0,0,0,7.7,7.5);
-	new cjs.ButtonHelper(this.btnItalia, 0, 1, 2, false, new lib.008_Italia(), 3);
+	new cjs.ButtonHelper(this.btnItalia, 0, 1, 2, false, new lib._008_Italia(), 3);
 
-	this.btnBelgica = new lib.006_Belgica();
+	this.btnBelgica = new lib._006_Belgica();
 	this.btnBelgica.name = "btnBelgica";
 	this.btnBelgica.parent = this;
 	this.btnBelgica.setTransform(188.75,545.75,1.2811,1.2762,0,0,0,7.4,9.7);
-	new cjs.ButtonHelper(this.btnBelgica, 0, 1, 2, false, new lib.006_Belgica(), 3);
+	new cjs.ButtonHelper(this.btnBelgica, 0, 1, 2, false, new lib._006_Belgica(), 3);
 
-	this.btnFrancia = new lib.005_Francia();
+	this.btnFrancia = new lib._005_Francia();
 	this.btnFrancia.name = "btnFrancia";
 	this.btnFrancia.parent = this;
 	this.btnFrancia.setTransform(158.35,601.95,1.2811,1.2762,0,0,0,6.4,9.2);
-	new cjs.ButtonHelper(this.btnFrancia, 0, 1, 2, false, new lib.005_Francia(), 3);
+	new cjs.ButtonHelper(this.btnFrancia, 0, 1, 2, false, new lib._005_Francia(), 3);
 
-	this.btnEspana = new lib.004_Esapana();
+	this.btnEspana = new lib._004_Esapana();
 	this.btnEspana.name = "btnEspana";
 	this.btnEspana.parent = this;
 	this.btnEspana.setTransform(108.7,698.6,1.2811,1.2762,0,0,0,7.5,7.7);
-	new cjs.ButtonHelper(this.btnEspana, 0, 1, 2, false, new lib.004_Esapana(), 3);
+	new cjs.ButtonHelper(this.btnEspana, 0, 1, 2, false, new lib._004_Esapana(), 3);
 
-	this.btnPortugal = new lib.003_Portugal();
+	this.btnPortugal = new lib._003_Portugal();
 	this.btnPortugal.name = "btnPortugal";
 	this.btnPortugal.parent = this;
 	this.btnPortugal.setTransform(58.5,703.35,1.2811,1.2762,0,0,0,7.9,7.2);
-	new cjs.ButtonHelper(this.btnPortugal, 0, 1, 2, false, new lib.003_Portugal(), 3);
+	new cjs.ButtonHelper(this.btnPortugal, 0, 1, 2, false, new lib._003_Portugal(), 3);
 
-	this.btnIngla = new lib.002_Inglaterra();
+	this.btnIngla = new lib._002_Inglaterra();
 	this.btnIngla.name = "btnIngla";
 	this.btnIngla.parent = this;
 	this.btnIngla.setTransform(107.05,472.2,1.2811,1.2762,0,0,0,7.4,9.3);
-	new cjs.ButtonHelper(this.btnIngla, 0, 1, 2, false, new lib.002_Inglaterra(), 3);
+	new cjs.ButtonHelper(this.btnIngla, 0, 1, 2, false, new lib._002_Inglaterra(), 3);
 
-	this.btnIrlanda = new lib.001_Irlanda();
+	this.btnIrlanda = new lib._001_Irlanda();
 	this.btnIrlanda.name = "btnIrlanda";
 	this.btnIrlanda.parent = this;
 	this.btnIrlanda.setTransform(54.65,492.6,1.2811,1.2762,0,0,0,9,10.4);
-	new cjs.ButtonHelper(this.btnIrlanda, 0, 1, 2, false, new lib.001_Irlanda(), 3);
+	new cjs.ButtonHelper(this.btnIrlanda, 0, 1, 2, false, new lib._001_Irlanda(), 3);
 
-	this.btnIslandia = new lib.000_Islandia();
+	this.btnIslandia = new lib._000_Islandia();
 	this.btnIslandia.name = "btnIslandia";
 	this.btnIslandia.parent = this;
 	this.btnIslandia.setTransform(104.7,268.75,1.2811,1.2762,0,0,0,7.3,9.3);
-	new cjs.ButtonHelper(this.btnIslandia, 0, 1, 2, false, new lib.000_Islandia(), 3);
+	new cjs.ButtonHelper(this.btnIslandia, 0, 1, 2, false, new lib._000_Islandia(), 3);
 
 	this.ActiveBgn = new lib.backGround();
 	this.ActiveBgn.name = "ActiveBgn";
@@ -4096,49 +4096,49 @@ lib.properties = {
 		{src:"images/Europa_atlas_4.png", id:"Europa_atlas_4"},
 		{src:"images/Europa_atlas_5.png", id:"Europa_atlas_5"},
 		{src:"images/Europa_atlas_6.png", id:"Europa_atlas_6"},
-		{src:"sounds/000.mp3", id:"000"},
-		{src:"sounds/001.mp3", id:"001"},
-		{src:"sounds/002.mp3", id:"002"},
-		{src:"sounds/003.mp3", id:"003"},
-		{src:"sounds/004.mp3", id:"004"},
-		{src:"sounds/005.mp3", id:"005"},
-		{src:"sounds/006.mp3", id:"006"},
-		{src:"sounds/007.mp3", id:"007"},
-		{src:"sounds/008.mp3", id:"008"},
-		{src:"sounds/009.mp3", id:"009"},
-		{src:"sounds/010.mp3", id:"010"},
-		{src:"sounds/011.mp3", id:"011"},
-		{src:"sounds/012.mp3", id:"012"},
-		{src:"sounds/013.mp3", id:"013"},
-		{src:"sounds/014.mp3", id:"014"},
-		{src:"sounds/015.mp3", id:"015"},
-		{src:"sounds/016.mp3", id:"016"},
-		{src:"sounds/017.mp3", id:"017"},
-		{src:"sounds/018.mp3", id:"018"},
-		{src:"sounds/019.mp3", id:"019"},
-		{src:"sounds/020.mp3", id:"020"},
-		{src:"sounds/021.mp3", id:"021"},
-		{src:"sounds/022.mp3", id:"022"},
-		{src:"sounds/023.mp3", id:"023"},
-		{src:"sounds/024.mp3", id:"024"},
-		{src:"sounds/025.mp3", id:"025"},
-		{src:"sounds/026.mp3", id:"026"},
-		{src:"sounds/027.mp3", id:"027"},
-		{src:"sounds/028.mp3", id:"028"},
-		{src:"sounds/029.mp3", id:"029"},
-		{src:"sounds/030.mp3", id:"030"},
-		{src:"sounds/031.mp3", id:"031"},
-		{src:"sounds/032.mp3", id:"032"},
-		{src:"sounds/033.mp3", id:"033"},
-		{src:"sounds/034.mp3", id:"034"},
-		{src:"sounds/035.mp3", id:"035"},
-		{src:"sounds/036.mp3", id:"036"},
-		{src:"sounds/037.mp3", id:"037"},
-		{src:"sounds/038.mp3", id:"038"},
-		{src:"sounds/039.mp3", id:"039"},
-		{src:"sounds/040.mp3", id:"040"},
-		{src:"sounds/041.mp3", id:"041"},
-		{src:"sounds/042.mp3", id:"042"}
+		{src:"sounds/000.mp3", id:"_000"},
+		{src:"sounds/001.mp3", id:"_001"},
+		{src:"sounds/002.mp3", id:"_002"},
+		{src:"sounds/003.mp3", id:"_003"},
+		{src:"sounds/004.mp3", id:"_004"},
+		{src:"sounds/005.mp3", id:"_005"},
+		{src:"sounds/006.mp3", id:"_006"},
+		{src:"sounds/007.mp3", id:"_007"},
+		{src:"sounds/008.mp3", id:"_008"},
+		{src:"sounds/009.mp3", id:"_009"},
+		{src:"sounds/010.mp3", id:"_010"},
+		{src:"sounds/011.mp3", id:"_011"},
+		{src:"sounds/012.mp3", id:"_012"},
+		{src:"sounds/013.mp3", id:"_013"},
+		{src:"sounds/014.mp3", id:"_014"},
+		{src:"sounds/015.mp3", id:"_015"},
+		{src:"sounds/016.mp3", id:"_016"},
+		{src:"sounds/017.mp3", id:"_017"},
+		{src:"sounds/018.mp3", id:"_018"},
+		{src:"sounds/019.mp3", id:"_019"},
+		{src:"sounds/020.mp3", id:"_020"},
+		{src:"sounds/021.mp3", id:"_021"},
+		{src:"sounds/022.mp3", id:"_022"},
+		{src:"sounds/023.mp3", id:"_023"},
+		{src:"sounds/024.mp3", id:"_024"},
+		{src:"sounds/025.mp3", id:"_025"},
+		{src:"sounds/026.mp3", id:"_026"},
+		{src:"sounds/027.mp3", id:"_027"},
+		{src:"sounds/028.mp3", id:"_028"},
+		{src:"sounds/029.mp3", id:"_029"},
+		{src:"sounds/030.mp3", id:"_030"},
+		{src:"sounds/031.mp3", id:"_031"},
+		{src:"sounds/032.mp3", id:"_032"},
+		{src:"sounds/033.mp3", id:"_033"},
+		{src:"sounds/034.mp3", id:"_034"},
+		{src:"sounds/035.mp3", id:"_035"},
+		{src:"sounds/036.mp3", id:"_036"},
+		{src:"sounds/037.mp3", id:"_037"},
+		{src:"sounds/038.mp3", id:"_038"},
+		{src:"sounds/039.mp3", id:"_039"},
+		{src:"sounds/040.mp3", id:"_040"},
+		{src:"sounds/041.mp3", id:"_041"},
+		{src:"sounds/042.mp3", id:"_042"}
 	],
 	preloads: []
 };
