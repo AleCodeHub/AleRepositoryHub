@@ -8,9 +8,9 @@ body {
 /* Make flag fill more of the screen width on mobile */
 #flag {
   width: 80%;
-  max-width: 500px; /* reasonable limit for larger devices */
+  max-width: 100px; /* reasonable limit for larger devices */
   height: auto;
-  margin-bottom: 6em;
+  margin-bottom: 1em;
   border: 2px solid black; /* <-- new line for border */
 }
 
