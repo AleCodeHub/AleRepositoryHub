@@ -9,7 +9,7 @@ body {
 #flag {
   width: 60%;
   max-width: 500px; /* reasonable limit for larger devices */
-  height: 200;
+  height: 184;
   margin-bottom: 1em;
   border: 2px solid black; /* <-- new line for border */
 }
