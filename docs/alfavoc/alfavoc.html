@@ -1,1 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Alfavoc</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
+    #top-bar {
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+    }
+
+    #btnInicio {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    #contador {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    #zonaJuego {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #imagenVocabulario {
+      max-height: 40vh;
+      margin-top: 3rem;
+      object-fit: contain;
+      cursor: pointer;
+      display: none;
+    }
+
+    #opciones {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      min-height: 100px;
+      align-items: center;
+    }
+
+    .opcion {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+      min-width: 120px;
+      text-align: center;
+      transform: rotate(0deg);
+      transition: all 0.3s ease;
+    }
+
+    #pantallaFinal {
+      text-align: center;
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      font-size: 2rem;
+      display: none;
+      line-height: 2.5rem;
+    }
+
+    #resumen {
+      margin: 1rem 0;
+      white-space: pre-line;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10;
+      mix-blend-mode: multiply;
+      opacity: 0;
+      background-color: transparent;
+      transition: opacity 0.5s ease;
+    }
+
+    #pantallaCarga {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    #barraProgresoContainer {
+      width: 80%;
+      background: #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #barraProgreso {
+      height: 20px;
+      background: #4caf50;
+      width: 0%;
+      transition: width 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div id="pantallaCarga">
+    <p>Cargando recursos...</p>
+    <div id="barraProgresoContainer">
+      <div id="barraProgreso"></div>
+    </div>
+  </div>
+
+  <div id="top-bar">
+    <button id="btnInicio">Inicio</button>
+    <div id="contador">7</div>
+  </div>
+
+  <div id="zonaJuego">
+    <div id="overlay"></div>
+    <img id="imagenVocabulario" src="" alt="Imagen" />
+    <div id="opciones"></div>
+  </div>
+
+  <div id="pantallaFinal">
+    <h1>¡Fin!</h1>
+    <p id="resumen"></p>
+    <p id="mensajeFinal"></p>
+  </div>
+
+  <script>
+    const nombresImagenes = [...Array(27)].map((_, i) => String(i+1).padStart(2, '0') + '_' + [
+      "avion", "cafe", "chaqueta", "dedo", "escaleras", "fuego", "gato", "hora", "insecto", "jardin",
+      "kiwi", "leon", "llave", "mango", "nido", "ojo", "pan", "quimica", "rayo", "sal",
+      "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
+    ][i] + '.png');
+
+    const palabrasCorrectas = ["avión", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto", "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo", "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"];
+    const palabrasIncorrectasA = ["plein", "cofi", "jaketo", "fingo", "estaira", "fairo", "cato", "houra", "insecta", "gardéna", "kiui", "lión", "quea", "mang", "nesto", "aie", "bred", "chemista", "reio", "salt", "tomato", "un", "vaccina", "webe", "exame", "yogurt", "zu"];
+    const palabrasIncorrectasB = ["airo", "cafei", "yacketa", "dengo", "scala", "faire", "cat", "haur", "inseckt", "gárdeno", "quiui", "laion", "ki", "mangoe", "nisdo", "aye", "pain", "quemista", "raio", "salte", "tomeito", "uan", "vacune", "weba", "exam", "yogu", "zuu"];
+
+    let imagenesRestantes = Array.from({ length: 27 }, (_, i) => i);
+    let varAciertos = 0;
+    let varErrores = 0;
+    let cuentaRegresiva;
+    let tiempo = 7;
+    let bloqueo = true;
+    let cicloInterval;
+    let imagenActual = 0;
+
+    const img = document.getElementById("imagenVocabulario");
+    const opciones = document.getElementById("opciones");
+    const contador = document.getElementById("contador");
+    const pantallaFinal = document.getElementById("pantallaFinal");
+    const resumen = document.getElementById("resumen");
+    const mensajeFinal = document.getElementById("mensajeFinal");
+    const btnInicio = document.getElementById("btnInicio");
+    const overlay = document.getElementById("overlay");
+    const pantallaCarga = document.getElementById("pantallaCarga");
+    const barraProgreso = document.getElementById("barraProgreso");
+
+    const imagenes = nombresImagenes.map(name => `assets/images/${name}`);
+    const sonidos = ["ding.mp3", "buzz.mp3"].map(s => `../assets/audio/interaccion/${s}`);
+
+    const recursos = [...imagenes, ...sonidos];
+    let cargados = 0;
+
+    recursos.forEach(src => {
+      const elemento = src.endsWith('.mp3') ? new Audio() : new Image();
+      elemento.src = src;
+      elemento.onload = elemento.oncanplaythrough = () => {
+        cargados++;
+        barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
+        if (cargados === recursos.length) pantallaCarga.style.display = 'none';
+      };
+    });
+
+    btnInicio.addEventListener("click", iniciarJuego);
+    img.addEventListener("click", detenerCiclo);
+
+    function iniciarJuego() {
+      varAciertos = 0;
+      varErrores = 0;
+      imagenesRestantes = Array.from({ length: 27 }, (_, i) => i);
+      shuffle(imagenesRestantes);
+      pantallaFinal.style.display = "none";
+      contador.style.display = "block";
+      iniciarCiclo();
+    }
+
+    function iniciarCiclo() {
+      bloqueo = true;
+      opciones.innerHTML = "";
+      img.style.display = "block";
+
+      if (imagenesRestantes.length > 3) {
+        let rotador = imagenesRestantes.slice();
+        let rotadorIndex = 0;
+        cicloInterval = setInterval(() => {
+          img.src = `assets/images/${nombresImagenes[rotador[rotadorIndex]]}`;
+          rotadorIndex = (rotadorIndex + 1) % rotador.length;
+        }, 100);
+      } else {
+        imagenActual = imagenesRestantes[0];
+        img.src = `assets/images/${nombresImagenes[imagenActual]}`;
+        mostrarOpciones();
+      }
+    }
+
+    function detenerCiclo() {
+      if (!bloqueo || imagenesRestantes.length <= 3) return;
+      clearInterval(cicloInterval);
+      imagenActual = imagenesRestantes[0];
+      img.src = `assets/images/${nombresImagenes[imagenActual]}`;
+      mostrarOpciones();
+    }
+
+    function mostrarOpciones() {
+      bloqueo = false;
+      const i = imagenActual;
+      const respuestas = [
+        { texto: palabrasCorrectas[i], correcta: true },
+        { texto: palabrasIncorrectasA[i], correcta: false },
+        { texto: palabrasIncorrectasB[i], correcta: false }
+      ];
+      shuffle(respuestas);
+      opciones.innerHTML = "";
+      respuestas.forEach((resp, idx) => {
+        const div = document.createElement("div");
+        div.className = "opcion";
+        div.style.backgroundColor = ["#b0f2c2", "#fff8a6", "#ffc8dd"][idx];
+        div.style.transform = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"][idx];
+        div.textContent = resp.texto;
+        div.addEventListener("click", () => seleccionar(resp.correcta, div));
+        opciones.appendChild(div);
+      });
+      tiempo = 7;
+      contador.textContent = tiempo;
+      clearInterval(cuentaRegresiva);
+      cuentaRegresiva = setInterval(() => {
+        tiempo--;
+        contador.textContent = tiempo;
+        if (tiempo <= 0) gestionarError();
+      }, 1000);
+    }
+
+    function seleccionar(esCorrecta, div) {
+      if (bloqueo) return;
+      bloqueo = true;
+      clearInterval(cuentaRegresiva);
+
+      if (esCorrecta) {
+        varAciertos++;
+        mostrarOverlay("lightblue");
+        div.style.backgroundColor = "green";
+        reproducirSonido("ding");
+      } else {
+        varErrores++;
+        mostrarOverlay("red");
+        reproducirSonido("buzz");
+        opciones.innerHTML = "";
+      }
+
+      setTimeout(() => {
+        ocultarOverlay();
+        opciones.innerHTML = "";
+        imagenesRestantes.shift();
+        if (imagenesRestantes.length === 0) {
+          mostrarPantallaFinal();
+        } else {
+          iniciarCiclo();
+        }
+      }, 1500);
+    }
+
+    function gestionarError() {
+      if (bloqueo) return;
+      bloqueo = true;
+      clearInterval(cuentaRegresiva);
+      varErrores++;
+      mostrarOverlay("red");
+      reproducirSonido("buzz");
+      opciones.innerHTML = "";
+
+      setTimeout(() => {
+        ocultarOverlay();
+        opciones.innerHTML = "";
+        imagenesRestantes.shift();
+        if (imagenesRestantes.length === 0) {
+          mostrarPantallaFinal();
+        } else {
+          iniciarCiclo();
+        }
+      }, 1500);
+    }
+
+    function mostrarOverlay(color) {
+      overlay.style.backgroundColor = color;
+      overlay.style.opacity = 0.6;
+    }
+
+    function ocultarOverlay() {
+      overlay.style.opacity = 0;
+    }
+
+    function reproducirSonido(tipo) {
+      const audio = new Audio(`../assets/audio/interaccion/${tipo}.mp3`);
+      audio.play().catch(err => console.warn("No se pudo reproducir sonido:", err));
+    }
+
+    function mostrarPantallaFinal() {
+      img.style.display = "none";
+      opciones.innerHTML = "";
+      contador.style.display = "none";
+      pantallaFinal.style.display = "block";
+      resumen.innerText = `Número de aciertos: ${varAciertos}\nNúmero de errores: ${varErrores}`;
+      const frases = [
+        ["¡Felicitaciones!", "恭喜！"],
+        ["¡Felicidades!", "恭喜！"],
+        ["¡Que tengas un día estupendo!", "祝你擁有美好的一天！"],
+        ["¡Muy buena suerte!", "祝你好運！"],
+        ["¡Bien hecho!", "幹得好！"],
+        ["¡Muy bien, guapo!", "非常好，帥哥！"],
+        ["¡Muy bien, guapa!", "非常好，漂亮！"]
+      ];
+      const [es, zh] = frases[Math.floor(Math.random() * frases.length)];
+      mensajeFinal.innerHTML = `${es}<br>${zh}`;
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+  </script>
+</body>
+</html>
