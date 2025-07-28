@@ -158,17 +158,17 @@
   </div>
 
   <script>
-    const nombresImagenes = [...Array(27)].map((_, i) => String(i+1).padStart(2, '0') + '_' + [
-      "avion", "cafe", "chaqueta", "dedo", "escaleras", "fuego", "gato", "hora", "insecto", "jardin",
+    const nombresImagenes = [...Array(28)].map((_, i) => String(i+1).padStart(2, '0') + '_' + [
+      "avion", "baston", "cafe", "chaqueta", "dedo", "escaleras", "fuego", "gato", "hora", "insecto", "jardin",
       "kiwi", "leon", "llave", "mango", "nido", "ojo", "pan", "quimica", "rayo", "sal",
       "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
     ][i] + '.png');
 
-    const palabrasCorrectas = ["avión", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto", "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo", "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"];
-    const palabrasIncorrectasA = ["plein", "cofi", "jaketo", "fingo", "estaira", "fairo", "cato", "houra", "insecta", "gardéna", "kiui", "lión", "quea", "mang", "nesto", "aie", "bred", "chemista", "reio", "salt", "tomato", "un", "vaccina", "webe", "exame", "yogurt", "zu"];
-    const palabrasIncorrectasB = ["airo", "cafei", "yacketa", "dengo", "scala", "faire", "cat", "haur", "inseckt", "gárdeno", "quiui", "laion", "ki", "mangoe", "nisdo", "aye", "pain", "quemista", "raio", "salte", "tomeito", "uan", "vacune", "weba", "exam", "yogu", "zuu"];
+    const palabrasCorrectas = ["avión", "bastón","café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto", "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo", "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"];
+    const palabrasIncorrectasA = ["plein", "cain", "cofi", "jaketo", "fingo", "estaira", "fairo", "cato", "houra", "insecta", "gardéna", "kiui", "lión", "quea", "mang", "nesto", "aie", "bred", "chemista", "reio", "salt", "tomato", "un", "vaccina", "webe", "exame", "yogurt", "zu"];
+    const palabrasIncorrectasB = ["airo", "baton", "cafei", "yacketa", "dengo", "scala", "faire", "cat", "haur", "inseckt", "gárdeno", "quiui", "laion", "ki", "mangoe", "nisdo", "aye", "pain", "quemista", "raio", "salte", "tomeito", "uan", "vacune", "weba", "exam", "yogu", "zuu"];
 
-    let imagenesRestantes = Array.from({ length: 27 }, (_, i) => i);
+    let imagenesRestantes = Array.from({ length: 28 }, (_, i) => i);
     let varAciertos = 0;
     let varErrores = 0;
     let cuentaRegresiva;
@@ -210,7 +210,7 @@
     function iniciarJuego() {
       varAciertos = 0;
       varErrores = 0;
-      imagenesRestantes = Array.from({ length: 27 }, (_, i) => i);
+      imagenesRestantes = Array.from({ length: 28 }, (_, i) => i);
       shuffle(imagenesRestantes);
       pantallaFinal.style.display = "none";
       contador.style.display = "block";
