@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Visualizador de Vocabulario</title>
+  <title>Vocabulario Visual</title>
   <style>
     body {
       margin: 0;
@@ -44,72 +44,55 @@
       transition: width 0.2s;
     }
 
-    #top-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 1rem;
-      width: 100vw;
-      display: flex;
-      justify-content: flex-start;
-      z-index: 10;
-    }
-
-    #btnInicio {
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-    }
-
     #zonaJuego {
       position: relative;
       width: 100vw;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
     #imagenVocabulario {
+      position: absolute;
       max-height: 40vh;
-      position: absolute;
-      transition: transform 0.6s ease, opacity 0.5s ease;
-      cursor: pointer;
+      transition: transform 0.6s ease, opacity 0.4s ease;
     }
 
-    .palabraEtiqueta {
-      position: absolute;
-      bottom: 20%;
-      padding: 1rem;
-      border-radius: 15px;
+    #palabraCorrecta {
+      margin-top: 3rem;
+      padding: 0.3rem 1rem;
       font-size: 2rem;
-      background-color: #b0f2c2;
-      transform: rotate(-7deg);
-      transition: opacity 0.5s ease;
+      border-radius: 30px;
+      text-align: center;
+      transform: rotate(0deg);
+      transition: opacity 0.4s ease;
       cursor: pointer;
+      z-index: 2;
     }
 
-    .botonNavegacion {
+    #controles {
       position: absolute;
       bottom: 2rem;
-      width: 50px;
-      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      font-size: 2rem;
+    }
+
+    .flecha {
       background: black;
       color: white;
-      font-size: 2rem;
       border-radius: 50%;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-    }
-
-    #btnAnterior {
-      left: 2rem;
-    }
-
-    #btnSiguiente {
-      right: 2rem;
+      user-select: none;
     }
   </style>
 </head>
@@ -121,97 +104,130 @@
     </div>
   </div>
 
-  <div id="top-bar">
-    <button id="btnInicio">Inicio</button>
-  </div>
-
   <div id="zonaJuego">
-    <img id="imagenVocabulario" src="" alt="Imagen" style="opacity:0" />
-    <div id="palabra" class="palabraEtiqueta" style="display:none; opacity:0"></div>
-    <div id="btnAnterior" class="botonNavegacion" style="display:none">&#x25C0;</div>
-    <div id="btnSiguiente" class="botonNavegacion" style="display:none">&#x25B6;</div>
+    <img id="imagenVocabulario" src="" alt="Imagen">
+    <div id="palabraCorrecta"></div>
+    <div id="controles">
+      <div id="btnAtras" class="flecha" style="visibility: hidden">🡸</div>
+      <div id="btnAdelante" class="flecha">🡺</div>
+    </div>
   </div>
 
   <script>
-    const palabrasCorrectas = ["avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto", "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo", "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"];
-    const nombresImagenes = palabrasCorrectas.map((p, i) => `assets/images/${String(i + 1).padStart(2, '0')}_${p.replace(/\u0301|\u0308|\u0303|\u0327|\u0341|\u0342|\u0343|\u0344|\u0345|\u0346|\u0347|\u0348|\u0349|\u034A|\u034B|\u034C|\u034D|\u034E|\u034F|\u0350|\u0351|\u0352|\u0353|\u0354|\u0355|\u0356|\u0357|\u0358|\u0359|\u035A|\u035B|\u035C|\u035D|\u035E|\u035F|\u0360|\u0361|\u0362/g, '').normalize('NFD').replace(/\p{Diacritic}/gu, '')}.png`);
-    const nombresSonidos = palabrasCorrectas.map((p, i) => `assets/sounds/snd${String(i + 1).padStart(3, '0')}_${p.replace(/\u0301/g, '').normalize('NFD').replace(/\p{Diacritic}/gu, '')}.mp3`);
+    const palabrasCorrectas = [
+      "avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto",
+      "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo",
+      "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
+    ];
+
+    //const nombresImagenes = palabrasCorrectas.map((palabra, i) => `assets/images/${String(i+1).padStart(2,'0')}_${palabra}.png`);
+    //const sonidos = palabrasCorrectas.map((palabra, i) => `assets/sounds/snd${String(i+1).padStart(3,'0')}_${palabra}.mp3`);
+
+const nombresImagenes = [
+  "assets/images/01_avion.png", "assets/images/02_baston.png", "assets/images/03_cafe.png", "assets/images/04_chaqueta.png",
+  "assets/images/05_dedo.png", "assets/images/06_escalera.png", "assets/images/07_fuego.png", "assets/images/08_gato.png",
+  "assets/images/09_hora.png", "assets/images/10_insecto.png", "assets/images/11_jardin.png", "assets/images/12_kiwi.png",
+  "assets/images/13_leon.png", "assets/images/14_llave.png", "assets/images/15_mango.png", "assets/images/16_nido.png",
+  "assets/images/17_ojo.png", "assets/images/18_pan.png", "assets/images/19_quimica.png", "assets/images/20_rayo.png",
+  "assets/images/21_sal.png", "assets/images/22_tomate.png", "assets/images/23_uno.png", "assets/images/24_vacuna.png",
+  "assets/images/25_web.png", "assets/images/26_examen.png", "assets/images/27_yogur.png", "assets/images/28_zoo.png"
+];
+
+const sonidos = [
+  "assets/sounds/snd001_avion.mp3", "assets/sounds/snd002_baston.mp3", "assets/sounds/snd003_cafe.mp3", "assets/sounds/snd004_chaqueta.mp3",
+  "assets/sounds/snd005_dedo.mp3", "assets/sounds/snd006_escalera.mp3", "assets/sounds/snd007_fuego.mp3", "assets/sounds/snd008_gato.mp3",
+  "assets/sounds/snd009_hora.mp3", "assets/sounds/snd010_insecto.mp3", "assets/sounds/snd011_jardin.mp3", "assets/sounds/snd012_kiwi.mp3",
+  "assets/sounds/snd013_leon.mp3", "assets/sounds/snd014_llave.mp3", "assets/sounds/snd015_mango.mp3", "assets/sounds/snd016_nido.mp3",
+  "assets/sounds/snd017_ojo.mp3", "assets/sounds/snd018_pan.mp3", "assets/sounds/snd019_quimica.mp3", "assets/sounds/snd020_rayo.mp3",
+  "assets/sounds/snd021_sal.mp3", "assets/sounds/snd022_tomate.mp3", "assets/sounds/snd023_uno.mp3", "assets/sounds/snd024_vacuna.mp3",
+  "assets/sounds/snd025_web.mp3", "assets/sounds/snd026_examen.mp3", "assets/sounds/snd027_yogur.mp3", "assets/sounds/snd028_zoo.mp3"
+];
 
     const img = document.getElementById("imagenVocabulario");
-    const palabraDiv = document.getElementById("palabra");
-    const btnInicio = document.getElementById("btnInicio");
+    const palabraDiv = document.getElementById("palabraCorrecta");
+    const btnAdelante = document.getElementById("btnAdelante");
+    const btnAtras = document.getElementById("btnAtras");
     const pantallaCarga = document.getElementById("pantallaCarga");
     const barraProgreso = document.getElementById("barraProgreso");
-    const btnAnterior = document.getElementById("btnAnterior");
-    const btnSiguiente = document.getElementById("btnSiguiente");
 
-    let indice = 0;
-    let reproduciendo = false;
-    let sonidos = [];
+    const colores = ["#b0f2c2", "#fff8a6", "#ffc8dd"];
+    const rotaciones = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"];
 
-    const recursos = [...nombresImagenes, ...nombresSonidos];
-    let cargados = 0;
+    let actual = 0;
+    let bloqueado = false;
 
-    recursos.forEach(src => {
-      const elemento = src.endsWith('.mp3') ? new Audio() : new Image();
-      elemento.src = src;
-      elemento.onload = elemento.oncanplaythrough = () => {
-        cargados++;
-        barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
-        if (cargados === recursos.length) pantallaCarga.style.display = 'none';
-      };
-      if (src.endsWith('.mp3')) sonidos.push(elemento);
-    });
+    function precargar(recursos, callback) {
+      let cargados = 0;
+      recursos.forEach(src => {
+        const el = src.endsWith('.mp3') ? new Audio() : new Image();
+        el.src = src;
+        el.onload = el.oncanplaythrough = () => {
+          cargados++;
+          barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
+          if (cargados === recursos.length) callback();
+        };
+      });
+    }
 
-    btnInicio.addEventListener("click", () => mostrarImagen(0));
-
-    btnSiguiente.addEventListener("click", () => mostrarImagen(indice + 1));
-    btnAnterior.addEventListener("click", () => mostrarImagen(indice - 1));
-
-    function mostrarImagen(i) {
-      if (i < 0 || i >= palabrasCorrectas.length) return;
-      indice = i;
-
+    function mostrar(i, direccion = 'adelante') {
+      bloqueado = true;
       palabraDiv.style.opacity = 0;
-      setTimeout(() => {
-        palabraDiv.style.display = 'none';
-      }, 300);
-
       img.style.opacity = 0;
-      img.style.transform = `translateX(${i > indice ? '100%' : '-100%'})`;
-      setTimeout(() => {
-        img.src = nombresImagenes[i];
-        img.style.transform = 'translateX(0)';
-        img.style.opacity = 1;
-      }, 300);
 
       setTimeout(() => {
+        img.style.transform = `translateX(${direccion === 'adelante' ? '100vw' : '-100vw'})`;
+        setTimeout(() => {
+          img.src = nombresImagenes[i];
+          img.style.transform = `translateX(0)`;
+          img.style.opacity = 1;
+        }, 100);
+
         palabraDiv.textContent = palabrasCorrectas[i];
-        palabraDiv.style.backgroundColor = ["#b0f2c2", "#fff8a6", "#ffc8dd"][i % 3];
-        palabraDiv.style.transform = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"][i % 3];
-        palabraDiv.style.display = 'block';
-        palabraDiv.style.opacity = 1;
-        reproducirAudio(i);
-      }, 600);
+        palabraDiv.style.backgroundColor = colores[i % 3];
+        palabraDiv.style.transform = rotaciones[i % 3];
 
-      btnAnterior.style.display = i === 0 ? 'none' : 'flex';
-      btnSiguiente.style.display = i === palabrasCorrectas.length - 1 ? 'none' : 'flex';
+        setTimeout(() => {
+          palabraDiv.style.opacity = 1;
+          bloqueado = false;
+        }, 300);
+
+        actualizarFlechas();
+      }, 300);
     }
 
-    function reproducirAudio(i) {
-      if (reproduciendo) return;
-      reproduciendo = true;
-      sonidos[i].currentTime = 0;
-      sonidos[i].play();
-      sonidos[i].onended = () => reproduciendo = false;
+    function actualizarFlechas() {
+      btnAtras.style.visibility = actual > 0 ? 'visible' : 'hidden';
+      btnAdelante.style.visibility = actual < palabrasCorrectas.length - 1 ? 'visible' : 'hidden';
     }
 
-    img.addEventListener("click", () => {
-      if (!reproduciendo) reproducirAudio(indice);
+    function reproducirSonido(i) {
+      if (bloqueado) return;
+      bloqueado = true;
+      const audio = new Audio(sonidos[i]);
+      audio.play();
+      audio.onended = () => bloqueado = false;
+    }
+
+    palabraDiv.addEventListener("click", () => reproducirSonido(actual));
+    img.addEventListener("click", () => reproducirSonido(actual));
+
+    btnAdelante.addEventListener("click", () => {
+      if (actual < palabrasCorrectas.length - 1 && !bloqueado) {
+        actual++;
+        mostrar(actual, 'adelante');
+      }
     });
 
-    palabraDiv.addEventListener("click", () => {
-      if (!reproduciendo) reproducirAudio(indice);
+    btnAtras.addEventListener("click", () => {
+      if (actual > 0 && !bloqueado) {
+        actual--;
+        mostrar(actual, 'atras');
+      }
+    });
+
+    precargar([...nombresImagenes, ...sonidos], () => {
+      pantallaCarga.style.display = 'none';
+      mostrar(actual);
     });
   </script>
 </body>
