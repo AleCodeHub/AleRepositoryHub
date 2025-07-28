@@ -1,1 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Visualizador de Vocabulario</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
+    #pantallaCarga {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    #barraProgresoContainer {
+      width: 80%;
+      background: #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #barraProgreso {
+      height: 20px;
+      background: #4caf50;
+      width: 0%;
+      transition: width 0.2s;
+    }
+
+    #top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      width: 100vw;
+      display: flex;
+      justify-content: flex-start;
+      z-index: 10;
+    }
+
+    #btnInicio {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    #zonaJuego {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #imagenVocabulario {
+      max-height: 40vh;
+      position: absolute;
+      transition: transform 0.6s ease, opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .palabraEtiqueta {
+      position: absolute;
+      bottom: 20%;
+      padding: 1rem;
+      border-radius: 15px;
+      font-size: 2rem;
+      background-color: #b0f2c2;
+      transform: rotate(-7deg);
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .botonNavegacion {
+      position: absolute;
+      bottom: 2rem;
+      width: 50px;
+      height: 50px;
+      background: black;
+      color: white;
+      font-size: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #btnAnterior {
+      left: 2rem;
+    }
+
+    #btnSiguiente {
+      right: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="pantallaCarga">
+    <p>Cargando recursos...</p>
+    <div id="barraProgresoContainer">
+      <div id="barraProgreso"></div>
+    </div>
+  </div>
+
+  <div id="top-bar">
+    <button id="btnInicio">Inicio</button>
+  </div>
+
+  <div id="zonaJuego">
+    <img id="imagenVocabulario" src="" alt="Imagen" style="opacity:0" />
+    <div id="palabra" class="palabraEtiqueta" style="display:none; opacity:0"></div>
+    <div id="btnAnterior" class="botonNavegacion" style="display:none">&#x25C0;</div>
+    <div id="btnSiguiente" class="botonNavegacion" style="display:none">&#x25B6;</div>
+  </div>
+
+  <script>
+    const palabrasCorrectas = ["avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto", "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo", "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"];
+    const nombresImagenes = palabrasCorrectas.map((p, i) => `assets/images/${String(i + 1).padStart(2, '0')}_${p.replace(/\u0301|\u0308|\u0303|\u0327|\u0341|\u0342|\u0343|\u0344|\u0345|\u0346|\u0347|\u0348|\u0349|\u034A|\u034B|\u034C|\u034D|\u034E|\u034F|\u0350|\u0351|\u0352|\u0353|\u0354|\u0355|\u0356|\u0357|\u0358|\u0359|\u035A|\u035B|\u035C|\u035D|\u035E|\u035F|\u0360|\u0361|\u0362/g, '').normalize('NFD').replace(/\p{Diacritic}/gu, '')}.png`);
+    const nombresSonidos = palabrasCorrectas.map((p, i) => `assets/sounds/snd${String(i + 1).padStart(3, '0')}_${p.replace(/\u0301/g, '').normalize('NFD').replace(/\p{Diacritic}/gu, '')}.mp3`);
+
+    const img = document.getElementById("imagenVocabulario");
+    const palabraDiv = document.getElementById("palabra");
+    const btnInicio = document.getElementById("btnInicio");
+    const pantallaCarga = document.getElementById("pantallaCarga");
+    const barraProgreso = document.getElementById("barraProgreso");
+    const btnAnterior = document.getElementById("btnAnterior");
+    const btnSiguiente = document.getElementById("btnSiguiente");
+
+    let indice = 0;
+    let reproduciendo = false;
+    let sonidos = [];
+
+    const recursos = [...nombresImagenes, ...nombresSonidos];
+    let cargados = 0;
+
+    recursos.forEach(src => {
+      const elemento = src.endsWith('.mp3') ? new Audio() : new Image();
+      elemento.src = src;
+      elemento.onload = elemento.oncanplaythrough = () => {
+        cargados++;
+        barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
+        if (cargados === recursos.length) pantallaCarga.style.display = 'none';
+      };
+      if (src.endsWith('.mp3')) sonidos.push(elemento);
+    });
+
+    btnInicio.addEventListener("click", () => mostrarImagen(0));
+
+    btnSiguiente.addEventListener("click", () => mostrarImagen(indice + 1));
+    btnAnterior.addEventListener("click", () => mostrarImagen(indice - 1));
+
+    function mostrarImagen(i) {
+      if (i < 0 || i >= palabrasCorrectas.length) return;
+      indice = i;
+
+      palabraDiv.style.opacity = 0;
+      setTimeout(() => {
+        palabraDiv.style.display = 'none';
+      }, 300);
+
+      img.style.opacity = 0;
+      img.style.transform = `translateX(${i > indice ? '100%' : '-100%'})`;
+      setTimeout(() => {
+        img.src = nombresImagenes[i];
+        img.style.transform = 'translateX(0)';
+        img.style.opacity = 1;
+      }, 300);
+
+      setTimeout(() => {
+        palabraDiv.textContent = palabrasCorrectas[i];
+        palabraDiv.style.backgroundColor = ["#b0f2c2", "#fff8a6", "#ffc8dd"][i % 3];
+        palabraDiv.style.transform = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"][i % 3];
+        palabraDiv.style.display = 'block';
+        palabraDiv.style.opacity = 1;
+        reproducirAudio(i);
+      }, 600);
+
+      btnAnterior.style.display = i === 0 ? 'none' : 'flex';
+      btnSiguiente.style.display = i === palabrasCorrectas.length - 1 ? 'none' : 'flex';
+    }
+
+    function reproducirAudio(i) {
+      if (reproduciendo) return;
+      reproduciendo = true;
+      sonidos[i].currentTime = 0;
+      sonidos[i].play();
+      sonidos[i].onended = () => reproduciendo = false;
+    }
+
+    img.addEventListener("click", () => {
+      if (!reproduciendo) reproducirAudio(indice);
+    });
+
+    palabraDiv.addEventListener("click", () => {
+      if (!reproduciendo) reproducirAudio(indice);
+    });
+  </script>
+</body>
+</html>
