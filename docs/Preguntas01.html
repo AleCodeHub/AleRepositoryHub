@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Roulette Versión 3 Mejorada</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 10%;
+      user-select: none;
+      cursor: pointer;
+    }
+    #word {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    #question {
+      font-size: 2em;
+      color: #ffcc00;
+      margin-bottom: 0.3em;
+    }
+    #answer {
+      font-size: 1.8em;
+      color: #66ff66;
+      margin-bottom: 0.5em;
+    }
+    #buttons {
+      margin-top: 1em;
+      display: none;
+    }
+    button {
+      font-size: 1.2em;
+      margin: 0.5em;
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #yesBtn { background-color: #4CAF50; color: white; }
+    #noBtn { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+  <div id="word"></div>
+  <div id="question"></div>
+  <div id="answer"></div>
+  <div id="buttons">
+    <p>¿Otra vez?</p>
+    <button id="yesBtn">Sí</button>
+    <button id="noBtn">No</button>
+  </div>
 
+  <script>
+    const fullSet = [
+      { word: "nombre", question: "¿Cómo te llamas?", answer: "Me llamo Lucía." },
+      { word: "apellido", question: "¿Cómo te apellidas?", answer: "Me apellido Chen." },
+      { word: "nacionalidad", question: "¿De dónde eres?", answer: "Soy taiwanesa." },
+      { word: "país", question: "¿De qué país eres?", answer: "Soy de Taiwán." },
+      { word: "ciudad", question: "¿De qué ciudad eres?", answer: "Soy de Taichung." },
+      { word: "profesión", question: "¿Qué haces?", answer: "Soy abogada." }
+    ];
+
+    let items = [...fullSet];
+    let currentItem = null;
+    let intervalId = null;
+    let state = "idle";
+
+    const wordDiv = document.getElementById("word");
+    const questionDiv = document.getElementById("question");
+    const answerDiv = document.getElementById("answer");
+    const buttonsDiv = document.getElementById("buttons");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    function getRandomItem() {
+      if (items.length === 0) return null;
+      const index = Math.floor(Math.random() * items.length);
+      return items[index];
+    }
+
+    function startLoop() {
+      if (items.length === 0) return;
+      state = "running";
+      intervalId = setInterval(() => {
+        currentItem = getRandomItem();
+        wordDiv.textContent = currentItem.word;
+        questionDiv.textContent = "";
+        answerDiv.textContent = "";
+        setTimeout(() => {
+          if (state === "running") wordDiv.textContent = "";
+        }, 100);
+      }, 150);
+    }
+
+    function stopLoop() {
+      clearInterval(intervalId);
+      state = "stopped";
+      wordDiv.textContent = currentItem.word;
+    }
+
+    function showQuestion() {
+      if (!currentItem) return;
+      state = "showingQuestion";
+      questionDiv.textContent = currentItem.question;
+    }
+
+    function showAnswerAndRemove() {
+      if (!currentItem) return;
+      state = "showingAnswer";
+      answerDiv.textContent = currentItem.answer;
+      items = items.filter(item => item.word !== currentItem.word);
+
+      if (items.length === 1) {
+        // next click should go directly to final item
+        setTimeout(() => {
+          wordDiv.textContent = "";
+          questionDiv.textContent = "";
+          answerDiv.textContent = "";
+          state = "finalItemReady";
+        }, 1000);
+      } else if (items.length === 0) {
+        // All done, shouldn't happen but safety
+        setTimeout(endSequence, 1000);
+      }
+    }
+
+    function showFinalItem() {
+      currentItem = items[0];
+      state = "finalItemWord";
+      wordDiv.textContent = currentItem.word;
+    }
+
+    function endSequence() {
+      wordDiv.textContent = "";
+      questionDiv.textContent = "";
+      answerDiv.textContent = "";
+      buttonsDiv.style.display = "block";
+    }
+
+    function restart() {
+      items = [...fullSet];
+      buttonsDiv.style.display = "none";
+      wordDiv.textContent = "";
+      questionDiv.textContent = "";
+      answerDiv.textContent = "";
+      currentItem = null;
+      state = "idle";
+    }
+
+    function finish() {
+      buttonsDiv.style.display = "none";
+      wordDiv.textContent = "";
+      questionDiv.textContent = "";
+      answerDiv.textContent = "Fin. ¡Muchas gracias!";
+      state = "done";
+    }
+
+    document.addEventListener("click", () => {
+      if (state === "idle") {
+        startLoop(); // Click A
+      } else if (state === "running") {
+        stopLoop(); // Click B
+      } else if (state === "stopped") {
+        showQuestion(); // Click C
+      } else if (state === "showingQuestion") {
+        showAnswerAndRemove(); // Click D
+      } else if (state === "showingAnswer") {
+        if (items.length === 1) {
+          showFinalItem();
+        } else {
+          wordDiv.textContent = "";
+          questionDiv.textContent = "";
+          answerDiv.textContent = "";
+          startLoop();
+        }
+      } else if (state === "finalItemReady") {
+        showFinalItem();
+      } else if (state === "finalItemWord") {
+        showQuestion();
+        state = "finalItemQuestion";
+      } else if (state === "finalItemQuestion") {
+        showAnswerAndRemove();
+        state = "finalItemAnswer";
+      } else if (state === "finalItemAnswer") {
+        endSequence();
+      }
+    });
+
+    yesBtn.addEventListener("click", restart);
+    noBtn.addEventListener("click", finish);
+  </script>
+</body>
+</html>
