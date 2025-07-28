@@ -55,16 +55,15 @@
     }
 
     #imagenVocabulario {
-      position: relative;
       max-height: 40vh;
       transition: transform 0.6s ease, opacity 0.4s ease;
     }
 
     #palabraCorrecta {
-      margin-top: 3rem;
+      margin-top: 1.5rem;
       padding: 0.3rem 1rem;
       font-size: 2rem;
-      border-radius: 30px;
+      border-radius: 40px;
       text-align: center;
       transform: rotate(0deg);
       transition: opacity 0.4s ease;
@@ -120,28 +119,8 @@
       "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
     ];
 
-    //const nombresImagenes = palabrasCorrectas.map((palabra, i) => `assets/images/${String(i+1).padStart(2,'0')}_${palabra}.png`);
-    //const sonidos = palabrasCorrectas.map((palabra, i) => `assets/sounds/snd${String(i+1).padStart(3,'0')}_${palabra}.mp3`);
-
-const nombresImagenes = [
-  "assets/images/01_avion.png", "assets/images/02_baston.png", "assets/images/03_cafe.png", "assets/images/04_chaqueta.png",
-  "assets/images/05_dedo.png", "assets/images/06_escalera.png", "assets/images/07_fuego.png", "assets/images/08_gato.png",
-  "assets/images/09_hora.png", "assets/images/10_insecto.png", "assets/images/11_jardin.png", "assets/images/12_kiwi.png",
-  "assets/images/13_leon.png", "assets/images/14_llave.png", "assets/images/15_mango.png", "assets/images/16_nido.png",
-  "assets/images/17_ojo.png", "assets/images/18_pan.png", "assets/images/19_quimica.png", "assets/images/20_rayo.png",
-  "assets/images/21_sal.png", "assets/images/22_tomate.png", "assets/images/23_uno.png", "assets/images/24_vacuna.png",
-  "assets/images/25_web.png", "assets/images/26_examen.png", "assets/images/27_yogur.png", "assets/images/28_zoo.png"
-];
-
-const sonidos = [
-  "assets/sounds/snd001_avion.mp3", "assets/sounds/snd002_baston.mp3", "assets/sounds/snd003_cafe.mp3", "assets/sounds/snd004_chaqueta.mp3",
-  "assets/sounds/snd005_dedo.mp3", "assets/sounds/snd006_escalera.mp3", "assets/sounds/snd007_fuego.mp3", "assets/sounds/snd008_gato.mp3",
-  "assets/sounds/snd009_hora.mp3", "assets/sounds/snd010_insecto.mp3", "assets/sounds/snd011_jardin.mp3", "assets/sounds/snd012_kiwi.mp3",
-  "assets/sounds/snd013_leon.mp3", "assets/sounds/snd014_llave.mp3", "assets/sounds/snd015_mango.mp3", "assets/sounds/snd016_nido.mp3",
-  "assets/sounds/snd017_ojo.mp3", "assets/sounds/snd018_pan.mp3", "assets/sounds/snd019_quimica.mp3", "assets/sounds/snd020_rayo.mp3",
-  "assets/sounds/snd021_sal.mp3", "assets/sounds/snd022_tomate.mp3", "assets/sounds/snd023_uno.mp3", "assets/sounds/snd024_vacuna.mp3",
-  "assets/sounds/snd025_web.mp3", "assets/sounds/snd026_examen.mp3", "assets/sounds/snd027_yogur.mp3", "assets/sounds/snd028_zoo.mp3"
-];
+    const nombresImagenes = palabrasCorrectas.map((palabra, i) => `assets/images/${String(i+1).padStart(2,'0')}_${palabra}.png`);
+    const sonidos = palabrasCorrectas.map((palabra, i) => `assets/sounds/snd${String(i+1).padStart(3,'0')}_${palabra}.mp3`);
 
     const img = document.getElementById("imagenVocabulario");
     const palabraDiv = document.getElementById("palabraCorrecta");
@@ -174,13 +153,20 @@ const sonidos = [
       palabraDiv.style.opacity = 0;
       img.style.opacity = 0;
 
+      const entradaDesde = direccion === 'adelante' ? '100vw' : '-100vw';
+      const salidaHacia = direccion === 'adelante' ? '-100vw' : '100vw';
+
+      img.style.transform = `translateX(${salidaHacia})`;
+
       setTimeout(() => {
-        img.style.transform = `translateX(${direccion === 'adelante' ? '100vw' : '-100vw'})`;
-        setTimeout(() => {
-          img.src = nombresImagenes[i];
-          img.style.transform = `translateX(0)`;
+        img.src = nombresImagenes[i];
+        img.style.transform = `translateX(${entradaDesde})`;
+        img.style.opacity = 0;
+
+        requestAnimationFrame(() => {
+          img.style.transform = 'translateX(0)';
           img.style.opacity = 1;
-        }, 100);
+        });
 
         palabraDiv.textContent = palabrasCorrectas[i];
         palabraDiv.style.backgroundColor = colores[i % 3];
@@ -188,7 +174,8 @@ const sonidos = [
 
         setTimeout(() => {
           palabraDiv.style.opacity = 1;
-          bloqueado = false;
+          reproducirSonido(i);
+          // solo se habilita el siguiente clic cuando termina el audio
         }, 300);
 
         actualizarFlechas();
