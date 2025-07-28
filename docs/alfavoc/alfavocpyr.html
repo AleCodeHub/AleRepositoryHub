@@ -60,10 +60,10 @@
     }
 
     #palabraCorrecta {
-      margin-top: 1.5rem;
-      padding: 0.3rem 1rem;
+      margin-top: 1.2rem;
+      padding: 0.2rem 1rem;
       font-size: 2rem;
-      border-radius: 40px;
+      border-radius: 60px;
       text-align: center;
       transform: rotate(0deg);
       transition: opacity 0.4s ease;
@@ -119,8 +119,22 @@
       "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
     ];
 
-    const nombresImagenes = palabrasCorrectas.map((palabra, i) => `assets/images/${String(i+1).padStart(2,'0')}_${palabra}.png`);
-    const sonidos = palabrasCorrectas.map((palabra, i) => `assets/sounds/snd${String(i+1).padStart(3,'0')}_${palabra}.mp3`);
+    const nombresImagenes = [
+      "01_avion.png", "02_baston.png", "03_cafe.png", "04_chaqueta.png", "05_dedo.png", "06_escalera.png",
+      "07_fuego.png", "08_gato.png", "09_hora.png", "10_insecto.png", "11_jardin.png", "12_kiwi.png",
+      "13_leon.png", "14_llave.png", "15_mango.png", "16_nido.png", "17_ojo.png", "18_pan.png",
+      "19_quimica.png", "20_rayo.png", "21_sal.png", "22_tomate.png", "23_uno.png", "24_vacuna.png",
+      "25_web.png", "26_examen.png", "27_yogur.png", "28_zoo.png"
+    ].map(name => `assets/images/${name}`);
+
+    const sonidos = [
+      "snd001_avion.mp3", "snd002_baston.mp3", "snd003_cafe.mp3", "snd004_chaqueta.mp3", "snd005_dedo.mp3",
+      "snd006_escalera.mp3", "snd007_fuego.mp3", "snd008_gato.mp3", "snd009_hora.mp3", "snd010_insecto.mp3",
+      "snd011_jardin.mp3", "snd012_kiwi.mp3", "snd013_leon.mp3", "snd014_llave.mp3", "snd015_mango.mp3",
+      "snd016_nido.mp3", "snd017_ojo.mp3", "snd018_pan.mp3", "snd019_quimica.mp3", "snd020_rayo.mp3",
+      "snd021_sal.mp3", "snd022_tomate.mp3", "snd023_uno.mp3", "snd024_vacuna.mp3", "snd025_web.mp3",
+      "snd026_examen.mp3", "snd027_yogur.mp3", "snd028_zoo.mp3"
+    ].map(name => `assets/sounds/${name}`);
 
     const img = document.getElementById("imagenVocabulario");
     const palabraDiv = document.getElementById("palabraCorrecta");
@@ -175,7 +189,6 @@
         setTimeout(() => {
           palabraDiv.style.opacity = 1;
           reproducirSonido(i);
-          // solo se habilita el siguiente clic cuando termina el audio
         }, 300);
 
         actualizarFlechas();
