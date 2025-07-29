@@ -142,135 +142,27 @@
 
   <script>
     const palabrasCorrectas = [
-  "avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto",
-  "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo",
-  "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
-];
+      "avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto",
+      "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo",
+      "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
+    ];
 
-const nombresImagenes = [
-  "01_avion.png", "02_baston.png", "03_cafe.png", "04_chaqueta.png", "05_dedo.png", "06_escalera.png",
-  "07_fuego.png", "08_gato.png", "09_hora.png", "10_insecto.png", "11_jardin.png", "12_kiwi.png",
-  "13_leon.png", "14_llave.png", "15_mango.png", "16_nido.png", "17_ojo.png", "18_pan.png",
-  "19_quimica.png", "20_rayo.png", "21_sal.png", "22_tomate.png", "23_uno.png", "24_vacuna.png",
-  "25_web.png", "26_examen.png", "27_yogur.png", "28_zoo.png"
-].map(name => `assets/images/${name}`);
+    const nombresImagenes = [
+      "01_avion.png", "02_baston.png", "03_cafe.png", "04_chaqueta.png", "05_dedo.png", "06_escalera.png",
+      "07_fuego.png", "08_gato.png", "09_hora.png", "10_insecto.png", "11_jardin.png", "12_kiwi.png",
+      "13_leon.png", "14_llave.png", "15_mango.png", "16_nido.png", "17_ojo.png", "18_pan.png",
+      "19_quimica.png", "20_rayo.png", "21_sal.png", "22_tomate.png", "23_uno.png", "24_vacuna.png",
+      "25_web.png", "26_examen.png", "27_yogur.png", "28_zoo.png"
+    ].map(name => `assets/images/${name}`);
 
-const sonidos = [
-  "snd001_avion.mp3", "snd002_baston.mp3", "snd003_cafe.mp3", "snd004_chaqueta.mp3", "snd005_dedo.mp3",
-  "snd006_escalera.mp3", "snd007_fuego.mp3", "snd008_gato.mp3", "snd009_hora.mp3", "snd010_insecto.mp3",
-  "snd011_jardin.mp3", "snd012_kiwi.mp3", "snd013_leon.mp3", "snd014_llave.mp3", "snd015_mango.mp3",
-  "snd016_nido.mp3", "snd017_ojo.mp3", "snd018_pan.mp3", "snd019_quimica.mp3", "snd020_rayo.mp3",
-  "snd021_sal.mp3", "snd022_tomate.mp3", "snd023_uno.mp3", "snd024_vacuna.mp3", "snd025_web.mp3",
-  "snd026_examen.mp3", "snd027_yogur.mp3", "snd028_zoo.mp3"
-].map(name => `assets/sounds/${name}`);
-    const img = document.getElementById("imagenVocabulario");
-    const palabraDiv = document.getElementById("palabraCorrecta");
-    const btnAdelante = document.getElementById("btnAdelante");
-    const btnAtras = document.getElementById("btnAtras");
-    const pantallaCarga = document.getElementById("pantallaCarga");
-    const pantallaInicio = document.getElementById("pantallaInicio");
-    const btnInicio = document.getElementById("btnInicio");
-    const barraProgreso = document.getElementById("barraProgreso");
-
-    const colores = ["#b0f2c2", "#fff8a6", "#ffc8dd"];
-    const rotaciones = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"];
-
-    let actual = 0;
-    let bloqueado = false;
-
-    function precargar(recursos, callback) {
-      let cargados = 0;
-      recursos.forEach(src => {
-        const el = src.endsWith('.mp3') ? new Audio() : new Image();
-        el.src = src;
-        el.onload = el.oncanplaythrough = () => {
-          cargados++;
-          barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
-          if (cargados === recursos.length) callback();
-        };
-      });
-    }
-
-    function mostrar(i, direccion = 'adelante') {
-      bloqueado = true;
-
-      const nuevaImg = new Image();
-      nuevaImg.src = nombresImagenes[i];
-      nuevaImg.id = "imagenVocabulario";
-      nuevaImg.style.position = 'absolute';
-      nuevaImg.style.maxHeight = '40vh';
-      nuevaImg.style.opacity = '0';
-      nuevaImg.style.transition = 'transform 0.6s ease, opacity 0.4s ease';
-      nuevaImg.style.transform = `translateX(${direccion === 'adelante' ? '100vw' : '-100vw'})`;
-
-      zonaJuego.appendChild(nuevaImg);
-
-      requestAnimationFrame(() => {
-        nuevaImg.style.transform = 'translateX(0)';
-        nuevaImg.style.opacity = '1';
-      });
-
-      const anterior = document.querySelectorAll('#zonaJuego img')[0];
-      if (anterior) {
-        anterior.style.transform = `translateX(${direccion === 'adelante' ? '-100vw' : '100vw'})`;
-        anterior.style.opacity = '0';
-        setTimeout(() => anterior.remove(), 600);
-      }
-
-      palabraDiv.textContent = palabrasCorrectas[i];
-      palabraDiv.style.backgroundColor = colores[i % 3];
-      palabraDiv.style.transform = rotaciones[i % 3];
-      palabraDiv.style.opacity = 0;
-
-      setTimeout(() => {
-        palabraDiv.style.opacity = 1;
-        reproducirSonido(i);
-      }, 300);
-
-      actualizarFlechas();
-    }
-
-    function actualizarFlechas() {
-      btnAtras.style.visibility = actual > 0 ? 'visible' : 'hidden';
-      btnAdelante.style.visibility = actual < palabrasCorrectas.length - 1 ? 'visible' : 'hidden';
-    }
-
-    function reproducirSonido(i) {
-      if (bloqueado) return;
-      bloqueado = true;
-      const audio = new Audio(sonidos[i]);
-      audio.play();
-      audio.onended = () => bloqueado = false;
-    }
-
-    palabraDiv.addEventListener("click", () => reproducirSonido(actual));
-    zonaJuego.addEventListener("click", e => {
-      if (e.target.id === "imagenVocabulario") reproducirSonido(actual);
-    });
-
-    btnAdelante.addEventListener("click", () => {
-      if (actual < palabrasCorrectas.length - 1 && !bloqueado) {
-        actual++;
-        mostrar(actual, 'adelante');
-      }
-    });
-
-    btnAtras.addEventListener("click", () => {
-      if (actual > 0 && !bloqueado) {
-        actual--;
-        mostrar(actual, 'atras');
-      }
-    });
-
-    btnInicio.addEventListener("click", () => {
-      pantallaInicio.style.display = 'none';
-      mostrar(actual);
-    });
-
-    precargar([...nombresImagenes, ...sonidos], () => {
-      pantallaCarga.style.display = 'none';
-      pantallaInicio.style.display = 'flex';
-    });
+    const sonidos = [
+      "snd001_avion.mp3", "snd002_baston.mp3", "snd003_cafe.mp3", "snd004_chaqueta.mp3", "snd005_dedo.mp3",
+      "snd006_escalera.mp3", "snd007_fuego.mp3", "snd008_gato.mp3", "snd009_hora.mp3", "snd010_insecto.mp3",
+      "snd011_jardin.mp3", "snd012_kiwi.mp3", "snd013_leon.mp3", "snd014_llave.mp3", "snd015_mango.mp3",
+      "snd016_nido.mp3", "snd017_ojo.mp3", "snd018_pan.mp3", "snd019_quimica.mp3", "snd020_rayo.mp3",
+      "snd021_sal.mp3", "snd022_tomate.mp3", "snd023_uno.mp3", "snd024_vacuna.mp3", "snd025_web.mp3",
+      "snd026_examen.mp3", "snd027_yogur.mp3", "snd028_zoo.mp3"
+    ].map(name => `assets/sounds/${name}`);
   </script>
 </body>
 </html>
