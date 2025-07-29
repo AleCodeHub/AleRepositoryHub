@@ -16,7 +16,7 @@
       justify-content: center;
     }
 
-    #pantallaCarga {
+    #pantallaCarga, #pantallaInicio {
       position: fixed;
       top: 0;
       left: 0;
@@ -60,10 +60,10 @@
     }
 
     #palabraCorrecta {
-      margin-top: 1.2rem;
+      margin-top: 0.6rem;
       padding: 0.2rem 1rem;
       font-size: 2rem;
-      border-radius: 60px;
+      border-radius: 80px;
       text-align: center;
       transform: rotate(0deg);
       transition: opacity 0.4s ease;
@@ -101,6 +101,10 @@
     <div id="barraProgresoContainer">
       <div id="barraProgreso"></div>
     </div>
+  </div>
+
+  <div id="pantallaInicio" style="display: none;">
+    <button id="btnInicio" style="font-size: 2rem; padding: 1rem 2rem;">Iniciar</button>
   </div>
 
   <div id="zonaJuego">
@@ -141,6 +145,8 @@
     const btnAdelante = document.getElementById("btnAdelante");
     const btnAtras = document.getElementById("btnAtras");
     const pantallaCarga = document.getElementById("pantallaCarga");
+    const pantallaInicio = document.getElementById("pantallaInicio");
+    const btnInicio = document.getElementById("btnInicio");
     const barraProgreso = document.getElementById("barraProgreso");
 
     const colores = ["#b0f2c2", "#fff8a6", "#ffc8dd"];
@@ -188,7 +194,9 @@
 
         setTimeout(() => {
           palabraDiv.style.opacity = 1;
-          reproducirSonido(i);
+          const audio = new Audio(sonidos[i]);
+          audio.play().catch(() => bloqueado = false);
+          audio.onended = () => bloqueado = false;
         }, 300);
 
         actualizarFlechas();
@@ -204,7 +212,7 @@
       if (bloqueado) return;
       bloqueado = true;
       const audio = new Audio(sonidos[i]);
-      audio.play();
+      audio.play().catch(() => bloqueado = false);
       audio.onended = () => bloqueado = false;
     }
 
@@ -227,6 +235,11 @@
 
     precargar([...nombresImagenes, ...sonidos], () => {
       pantallaCarga.style.display = 'none';
+      pantallaInicio.style.display = 'flex';
+    });
+
+    btnInicio.addEventListener("click", () => {
+      pantallaInicio.style.display = 'none';
       mostrar(actual);
     });
   </script>
