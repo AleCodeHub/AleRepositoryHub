@@ -16,7 +16,7 @@
       justify-content: center;
     }
 
-    #pantallaCarga {
+    #pantallaCarga, #pantallaInicio {
       position: fixed;
       top: 0;
       left: 0;
@@ -28,19 +28,6 @@
       justify-content: center;
       flex-direction: column;
       z-index: 1000;
-    }
-
-    #pantallaInicio {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
     }
 
     #btnInicio {
@@ -163,6 +150,109 @@
       "snd021_sal.mp3", "snd022_tomate.mp3", "snd023_uno.mp3", "snd024_vacuna.mp3", "snd025_web.mp3",
       "snd026_examen.mp3", "snd027_yogur.mp3", "snd028_zoo.mp3"
     ].map(name => `assets/sounds/${name}`);
+
+    const img = document.getElementById("imagenVocabulario");
+    const palabraDiv = document.getElementById("palabraCorrecta");
+    const btnAdelante = document.getElementById("btnAdelante");
+    const btnAtras = document.getElementById("btnAtras");
+    const pantallaCarga = document.getElementById("pantallaCarga");
+    const pantallaInicio = document.getElementById("pantallaInicio");
+    const btnInicio = document.getElementById("btnInicio");
+    const barraProgreso = document.getElementById("barraProgreso");
+
+    const colores = ["#b0f2c2", "#fff8a6", "#ffc8dd"];
+    const rotaciones = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"];
+
+    let actual = 0;
+    let bloqueado = false;
+
+    function precargar(recursos, callback) {
+      let cargados = 0;
+      recursos.forEach(src => {
+        const el = src.endsWith('.mp3') ? new Audio() : new Image();
+        el.src = src;
+        el.onload = el.oncanplaythrough = () => {
+          cargados++;
+          barraProgreso.style.width = `${(cargados / recursos.length) * 100}%`;
+          if (cargados === recursos.length) callback();
+        };
+      });
+    }
+
+    function mostrar(i, direccion = 'adelante') {
+      bloqueado = true;
+      palabraDiv.style.opacity = 0;
+      img.style.opacity = 0;
+
+      const entradaDesde = direccion === 'adelante' ? '100vw' : '-100vw';
+      const salidaHacia = direccion === 'adelante' ? '-100vw' : '100vw';
+
+      img.style.transform = `translateX(${salidaHacia})`;
+
+      setTimeout(() => {
+        img.src = nombresImagenes[i];
+        img.style.transform = `translateX(${entradaDesde})`;
+        img.style.opacity = 0;
+
+        requestAnimationFrame(() => {
+          img.style.transform = 'translateX(0)';
+          img.style.opacity = 1;
+        });
+
+        palabraDiv.textContent = palabrasCorrectas[i];
+        palabraDiv.style.backgroundColor = colores[i % 3];
+        palabraDiv.style.transform = rotaciones[i % 3];
+
+        setTimeout(() => {
+          palabraDiv.style.opacity = 1;
+          const audio = new Audio(sonidos[i]);
+          audio.play().catch(() => bloqueado = false);
+          audio.onended = () => bloqueado = false;
+        }, 300);
+
+        actualizarFlechas();
+      }, 300);
+    }
+
+    function actualizarFlechas() {
+      btnAtras.style.visibility = actual > 0 ? 'visible' : 'hidden';
+      btnAdelante.style.visibility = actual < palabrasCorrectas.length - 1 ? 'visible' : 'hidden';
+    }
+
+    function reproducirSonido(i) {
+      if (bloqueado) return;
+      bloqueado = true;
+      const audio = new Audio(sonidos[i]);
+      audio.play().catch(() => bloqueado = false);
+      audio.onended = () => bloqueado = false;
+    }
+
+    palabraDiv.addEventListener("click", () => reproducirSonido(actual));
+    img.addEventListener("click", () => reproducirSonido(actual));
+
+    btnAdelante.addEventListener("click", () => {
+      if (actual < palabrasCorrectas.length - 1 && !bloqueado) {
+        actual++;
+        mostrar(actual, 'adelante');
+      }
+    });
+
+    btnAtras.addEventListener("click", () => {
+      if (actual > 0 && !bloqueado) {
+        actual--;
+        mostrar(actual, 'atras');
+      }
+    });
+
+    precargar([...nombresImagenes, ...sonidos], () => {
+      pantallaCarga.style.display = 'none';
+      pantallaInicio.style.display = 'flex';
+    });
+
+    btnInicio.addEventListener("click", () => {
+      pantallaInicio.style.display = 'none';
+      mostrar(actual);
+    });
   </script>
 </body>
 </html>
