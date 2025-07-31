@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Vocabulario Visual</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #pantallaInicio {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    #zonaJuego {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #imagenVocabulario {
+      max-height: 40vh;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+    }
+
+    #palabraCorrecta {
+      margin-top: 0.6rem;
+      padding: 0.2rem 1rem;
+      font-size: 2rem;
+      border-radius: 80px;
+      text-align: center;
+      transform: rotate(0deg);
+      transition: opacity 0.4s ease;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    /*
+    #controles {
+      position: absolute;
+      bottom: 2rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      font-size: 2rem;
+    }
+
+    .flecha {
+      background: black;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+*/
+    #controles {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .flecha {
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  } 
+    
+  </style>
+</head>
+<body>
+
+  <div id="pantallaInicio">
+    <button id="btnInicio" style="font-size: 2rem; padding: 1rem 2rem;">Iniciar</button>
+  </div>
+
+  <div id="zonaJuego">
+    <img id="imagenVocabulario" src="" alt="Imagen">
+    <div id="palabraCorrecta"></div>
+    <div id="controles">
+      <div id="btnAtras" class="flecha" style="visibility: hidden">←</div>
+      <div id="btnAdelante" class="flecha">→</div>
+    </div>
+  </div>
+
+  <script>
+    const palabrasCorrectas = [
+      "avión", "bastón", "café", "chaqueta", "dedo", "escalera", "fuego", "gato", "hora", "insecto",
+      "jardín", "kiwi", "león", "llave", "mango", "nido", "ojo", "pan", "química", "rayo",
+      "sal", "tomate", "uno", "vacuna", "web", "examen", "yogur", "zoo"
+    ];
+
+    const nombresImagenes = [
+      "01_avion.png", "02_baston.png", "03_cafe.png", "04_chaqueta.png", "05_dedo.png", "06_escalera.png",
+      "07_fuego.png", "08_gato.png", "09_hora.png", "10_insecto.png", "11_jardin.png", "12_kiwi.png",
+      "13_leon.png", "14_llave.png", "15_mango.png", "16_nido.png", "17_ojo.png", "18_pan.png",
+      "19_quimica.png", "20_rayo.png", "21_sal.png", "22_tomate.png", "23_uno.png", "24_vacuna.png",
+      "25_web.png", "26_examen.png", "27_yogur.png", "28_zoo.png"
+    ].map(name => `assets/images/${name}`);
+
+    const sonidos = [
+      "snd001_avion.mp3", "snd002_baston.mp3", "snd003_cafe.mp3", "snd004_chaqueta.mp3", "snd005_dedo.mp3",
+      "snd006_escalera.mp3", "snd007_fuego.mp3", "snd008_gato.mp3", "snd009_hora.mp3", "snd010_insecto.mp3",
+      "snd011_jardin.mp3", "snd012_kiwi.mp3", "snd013_leon.mp3", "snd014_llave.mp3", "snd015_mango.mp3",
+      "snd016_nido.mp3", "snd017_ojo.mp3", "snd018_pan.mp3", "snd019_quimica.mp3", "snd020_rayo.mp3",
+      "snd021_sal.mp3", "snd022_tomate.mp3", "snd023_uno.mp3", "snd024_vacuna.mp3", "snd025_web.mp3",
+      "snd026_examen.mp3", "snd027_yogur.mp3", "snd028_zoo.mp3"
+    ].map(name => `assets/sounds/${name}`);
+
+    const img = document.getElementById("imagenVocabulario");
+    const palabraDiv = document.getElementById("palabraCorrecta");
+    const btnAdelante = document.getElementById("btnAdelante");
+    const btnAtras = document.getElementById("btnAtras");
+    const pantallaInicio = document.getElementById("pantallaInicio");
+    const btnInicio = document.getElementById("btnInicio");
+
+    const colores = ["#b0f2c2", "#fff8a6", "#ffc8dd"];
+    const rotaciones = ["rotate(-7deg)", "rotate(3deg)", "rotate(-5deg)"];
+
+    let actual = 0;
+    let bloqueado = false;
+
+    function mostrar(i, direccion = 'adelante') {
+      bloqueado = true;
+      palabraDiv.style.opacity = 0;
+      img.style.opacity = 0;
+
+      const entradaDesde = direccion === 'adelante' ? '100vw' : '-100vw';
+      const salidaHacia = direccion === 'adelante' ? '-100vw' : '100vw';
+
+      img.style.transform = `translateX(${salidaHacia})`;
+
+      setTimeout(() => {
+        img.src = nombresImagenes[i];
+        img.style.transform = `translateX(${entradaDesde})`;
+        img.style.opacity = 0;
+
+        requestAnimationFrame(() => {
+          img.style.transform = 'translateX(0)';
+          img.style.opacity = 1;
+        });
+
+        palabraDiv.textContent = palabrasCorrectas[i];
+        palabraDiv.style.backgroundColor = colores[i % 3];
+        palabraDiv.style.transform = rotaciones[i % 3];
+
+        setTimeout(() => {
+          palabraDiv.style.opacity = 1;
+          const audio = new Audio(sonidos[i]);
+          audio.play().catch(() => bloqueado = false);
+          audio.onended = () => bloqueado = false;
+        }, 300);
+
+        actualizarFlechas();
+      }, 300);
+    }
+
+    function actualizarFlechas() {
+      btnAtras.style.visibility = actual > 0 ? 'visible' : 'hidden';
+      btnAdelante.style.visibility = actual < palabrasCorrectas.length - 1 ? 'visible' : 'hidden';
+    }
+
+    function reproducirSonido(i) {
+      if (bloqueado) return;
+      bloqueado = true;
+      const audio = new Audio(sonidos[i]);
+      audio.play().catch(() => bloqueado = false);
+      audio.onended = () => bloqueado = false;
+    }
+
+    palabraDiv.addEventListener("click", () => reproducirSonido(actual));
+    img.addEventListener("click", () => reproducirSonido(actual));
+
+    btnAdelante.addEventListener("click", () => {
+      if (actual < palabrasCorrectas.length - 1 && !bloqueado) {
+        actual++;
+        mostrar(actual, 'adelante');
+      }
+    });
+
+    btnAtras.addEventListener("click", () => {
+      if (actual > 0 && !bloqueado) {
+        actual--;
+        mostrar(actual, 'atras');
+      }
+    });
+
+    btnInicio.addEventListener("click", () => {
+      pantallaInicio.style.display = 'none';
+      mostrar(actual);
+    });
+  </script>
+</body>
+</html>
