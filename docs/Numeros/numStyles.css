@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightgray;
+  font-family: monospace;
+}
+#calculator {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+#screen {
+  width: 80%;
+  height: 80px;
+  background-color: green;
+  color: white;
+  border: 2px solid rgb(96, 96, 96);
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+#screen-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  font-size: 40px;
+}
+
+#number-display {
+  width: 3ch;              /* suficiente para 2 dígitos */
+  flex-shrink: 0;          /* no permite que se reduzca más */
+  text-align: left;
+}
+
+
+#name-display {
+  flex: 1;
+  text-align: left;
+}
+
+#keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 80%;
+}
+.key {
+  background-color: #8b8b8b;
+  color: white;
+  border: 2px solid rgb(96, 96, 96);
+  font-size: 32px;
+  height: 60px;
+  border-radius: 8px; /* ← redondeo suave */
+}
+#borra, #lee {
+  font-size: 16px;
+}
